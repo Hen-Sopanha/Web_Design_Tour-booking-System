@@ -93,7 +93,7 @@ function createFooter() {
       <!-- Top: Logo and Rating -->  
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="./../assets/logo/CamTravel Logo.png" alt="CamTravel" class="footer-logo-img">
+          <img src="./../assets/logo/CamTravel-Logo.png" alt="CamTravel" class="footer-logo-img">
           <p class="footer-tagline">Explore Cambodia with CamTravel</p>
         </div>
 

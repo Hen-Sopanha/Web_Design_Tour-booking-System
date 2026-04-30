@@ -9,7 +9,7 @@ function createHeader() {
   header.className = 'site-header';
   header.innerHTML = `
     <div class="header-inner">
-      <img src="./../assets/logo/CamTravel Logo.png" alt="CamTravel" class="header-logo-img">
+      <img src="./../assets/logo/CamTravel-Logo.png" alt="CamTravel" class="header-logo-img">
 
       <div class="header-controls">
         <div class="currency-selector" id="currencySelector">
