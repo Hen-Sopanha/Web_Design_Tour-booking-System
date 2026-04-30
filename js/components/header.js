@@ -1,5 +1,6 @@
 const currencies = [
   { code: 'USD', label: 'USD' },
+  { code: 'EUR', label: 'EUR' },
   { code: 'KHR', label: 'KHR' },
 ];
 
