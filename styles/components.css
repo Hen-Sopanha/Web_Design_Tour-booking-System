@@ -1,0 +1,360 @@
+/* Component: Site Header */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 68px;
+}
+
+/* Logo  */
+.header-logo-img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Currency selector */
+.currency-selector {
+    position: relative;
+}
+
+.currency-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+}
+
+.currency-btn:hover {
+    border-color: #9ca3af;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.currency-btn:focus-visible {
+    outline: 2px solid #1A6FDB;
+    outline-offset: 2px;
+}
+
+.chevron-icon {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    color: #6b7280;
+}
+
+.currency-selector.is-open .chevron-icon {
+    transform: rotate(180deg);
+}
+
+.currency-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 140px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    z-index: 100;
+    animation: fadeSlideDown 0.15s ease;
+}
+
+.currency-selector.is-open .currency-dropdown {
+    display: block;
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.currency-option {
+    padding: 10px 16px;
+    font-size: 0.875rem;
+    color: #374151;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.currency-option:hover {
+    background: #f3f4f6;
+}
+
+.currency-option.is-selected {
+    color: #1A6FDB;
+    font-weight: 600;
+    background: #eff6ff;
+}
+
+/* CTA Button */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #1A6FDB;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 2px 8px rgba(26, 111, 219, 0.30);
+}
+
+.btn-cta:hover {
+    background: #1558b8;
+    box-shadow: 0 4px 14px rgba(26, 111, 219, 0.40);
+    transform: translateY(-1px);
+}
+
+.btn-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(26, 111, 219, 0.25);
+}
+
+.btn-cta:focus-visible {
+    outline: 2px solid #1A6FDB;
+    outline-offset: 3px;
+}
+
+
+/* Component: Site Footer*/
+
+.site-footer {
+    background-color: #EFF6FF;
+    border-top: 1px solid #dde2ec;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 24px 0;
+}
+
+/* ---- Top: Logo and Rating ---- */
+.footer-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 28px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-logo-img {
+    height: 120px;
+    width: 120px;
+    margin-left: 30px;
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    color: #6b7280;
+    max-width: 180px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.footer-rating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 50px;
+    padding-left: 130px;
+}
+
+.rating-label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    white-space: nowrap;
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ---- Mid: 4 Columns ---- */
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #dde2ec;
+}
+
+.footer-col-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.footer-col-listing {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-link {
+    font-size: 0.9rem;
+    color: #4B5563;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+
+.footer-link:hover {
+    color: #1A6FDB;
+}
+
+/* ---- Payment grid ---- */
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    align-items: stretch;
+}
+
+.payment-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 44px;
+    padding: 6px 8px;
+    background: transparent;
+    overflow: hidden;
+    transition: transform 0.15s;
+}
+
+.payment-badge:hover {
+    transform: translateY(-2px);
+}
+
+.payment-logo-img {
+    object-fit: contain;
+    display: block;
+    mix-blend-mode: darken;
+}
+
+.payment-logo-mastercard {
+    width: 46px;
+    height: auto;
+}
+
+.payment-logo-visa {
+    width: 56px;
+    height: auto;
+}
+
+.payment-logo-applepay {
+    width: 110px;
+    height: auto;
+}
+
+.payment-logo-aba {
+    width: 52px;
+    height: auto;
+}
+
+.payment-logo-paypal {
+    width: 35px;
+    height: auto;
+}
+
+.payment-logo-alipay {
+    width: 44px;
+    height: auto;
+}
+
+/* ---- Bottom: socials ---- */
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0 20px;
+}
+
+.socials-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.socials-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: #374151;
+    background: transparent;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: #1A6FDB;
+}
