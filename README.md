@@ -5,7 +5,7 @@ Team Assignment: Group Project – Frontend Web Development
 Author(s): Hen Sopanha + Be Mengseang + Khim Vy Seyha + Hao Ratha + Bora Picheth
 
 File Structure
-
+```
 tour-booking-system/
 │── /pages
 |   ├── index.html              # Home page
@@ -43,3 +43,4 @@ tour-booking-system/
 │   │   └── booking.js
 │
 └── README.md                   # Project documentation
+```
