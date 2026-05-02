@@ -112,4 +112,16 @@
         justify-content: center;
         gap: 12px;
     }
+    
+    
+}
+/* 📱 Mobile (default → 2 cards) */
+.card {
+    width: calc(50% - 20px);
+}
+/* 💻 Desktop (3 cards) */
+@media (min-width: 768px) {
+    .card {
+        width: calc(33.33% - 20px);
+    }
 }
