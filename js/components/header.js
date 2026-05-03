@@ -1,7 +1,8 @@
 const currencies = [
   { code: 'USD', label: 'USD' },
-  { code: 'EUR', label: 'EUR' },
   { code: 'KHR', label: 'KHR' },
+  { code: 'EUR', label: 'EUR' },
+  { code: 'GBP', label: 'GBP' },
 ];
 
 function createHeader() {
@@ -67,6 +68,20 @@ function initCurrencyDropdown() {
 
   if (!btn || !dropdown) return;
 
+  // Set initial currency from localStorage
+  const savedCurrency = localStorage.getItem('selectedCurrency') || 'USD';
+  label.textContent = `Currency (${savedCurrency})`;
+  
+  dropdown.querySelectorAll('.currency-option').forEach(el => {
+    if (el.dataset.code === savedCurrency) {
+      el.classList.add('is-selected');
+      el.setAttribute('aria-selected', 'true');
+    } else {
+      el.classList.remove('is-selected');
+      el.setAttribute('aria-selected', 'false');
+    }
+  });
+
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
     const isOpen = selector.classList.toggle('is-open');
@@ -89,6 +104,11 @@ function initCurrencyDropdown() {
 
     selector.classList.remove('is-open');
     btn.setAttribute('aria-expanded', 'false');
+
+    // Store and dispatch change event
+    localStorage.setItem('selectedCurrency', code);
+    const currencyChangedEvent = new CustomEvent('currencyChanged', { detail: { code } });
+    document.dispatchEvent(currencyChangedEvent);
   });
 
   document.addEventListener('click', () => {
