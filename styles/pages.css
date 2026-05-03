@@ -44,18 +44,21 @@
     flex: 3.5;
 }
 
-/* Widest */
-.tour-hero-gallery .img-2 {
+.tour-hero-gallery .row-small {
+    flex: 5.4;
+    display: flex;
+    gap: 12px;
+}
+
+.tour-hero-gallery .row-small .img-2 {
     flex: 3;
 }
 
-/* Medium */
-.tour-hero-gallery .img-3 {
+.tour-hero-gallery .row-small .img-3 {
     flex: 1.2;
 }
 
-/* Narrow */
-.tour-hero-gallery .img-4 {
+.tour-hero-gallery .row-small .img-4 {
     flex: 1.2;
 }
 
