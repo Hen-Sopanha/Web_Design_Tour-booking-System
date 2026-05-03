@@ -24,6 +24,10 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+  /* hover */
+  .card:hover {
+    transform: translateY(-8px);
+  }
   /* image */
   .card img {
     width: 100%;
@@ -42,8 +46,8 @@
     background: rgba(0,0,0,0.4);
     padding: 5px 10px;
     border-radius: 5px;
-  }
-  /* Attractive section */
+}
+/* Attractive section */
   .attractive-section {
       background: linear-gradient(135deg, #ff7e5e, #feb47b);
       color: white;
@@ -60,7 +64,7 @@
     padding: 1rem;
   }
   
-  /* card */
+/* card */
   .h-card {
     flex: 0 0 280px;
     background: white;
@@ -99,5 +103,5 @@
   .h-card-content p {
     font-size: 0.8rem;
     color: gray;
-  }
+}
   
