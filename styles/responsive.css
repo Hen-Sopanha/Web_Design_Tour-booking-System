@@ -99,6 +99,11 @@
     .booking-widget {
         width: 100%;
     }
+
+    .included-excluded-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
 
 /* ---- Mobile view (max-width: 576px) ---- */
@@ -244,5 +249,17 @@
         width: 95vw;
         height: auto;
         max-height: 70vh;
+    }
+}
+
+/* 📱 Mobile (1 card) */
+.card, .h-card {
+    width: 100%;
+}
+
+/* 💻 Desktop (3 cards) */
+@media (min-width: 768px) {
+    .card, .h-card {
+        width: calc(33.33% - 20px);
     }
 }
