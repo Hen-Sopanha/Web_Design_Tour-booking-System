@@ -635,7 +635,7 @@
                                         <div class="addon-label">Travel Insurance (Recommended)</div>
                                         <div class="addon-description">Full protection for your Sicilian adventure</div>
                                     </div>
-                                    <span class="addon-price">+$145</span>
+                                     <span class="addon-price price-convert" data-base-price="145">+$145</span>
                                 </div>
                                 <input type="checkbox" name="addon" value="insurance" checked>
                             </label>
@@ -645,7 +645,7 @@
                                         <div class="addon-label">Airport Transfer</div>
                                         <div class="addon-description">Private chauffeur from CTA Airport to Hotel</div>
                                     </div>
-                                    <span class="addon-price">+$85</span>
+                                    <span class="addon-price price-convert" data-base-price="85">+$85</span>
                                 </div>
                                 <input type="checkbox" name="addon" value="transfer">
                             </label>
@@ -656,7 +656,7 @@
                                         <div class="addon-description">Extend your stay with 1 night at the Grand Hotel
                                             Baia Verde</div>
                                     </div>
-                                    <span class="addon-price">+$220</span>
+                                    <span class="addon-price price-convert" data-base-price="220">+$220</span>
                                 </div>
                                 <input type="checkbox" name="addon" value="extra-night">
                             </label>
@@ -678,15 +678,14 @@
                         <div class="summary-detail"><span class="material-symbols-outlined">group</span><span>2
                                 Travelers</span></div>
                         <div style="border-top:1px solid #e7e8e9; padding-top:20px; margin-top:20px;">
-                            <div class="price-row"><span>Tour Price ($1,850 x 2)</span><span>$3,700.00</span></div>
-                            <div class="price-row"><span>Room Surcharge</span><span id="roomSurcharge">$0.00</span>
+                            <div class="price-row"><span>Tour Price (<span class="price-convert" data-base-price="1850">$1,850</span> x 2)</span><span class="price-convert" data-base-price="3700">$3,700.00</span></div>
+                            <div class="price-row"><span>Room Surcharge</span><span id="roomSurcharge" class="price-convert" data-base-price="0">$0.00</span>
                             </div>
-                            <div class="price-row"><span>Taxes & Fees</span><span>$120.00</span></div>
-                            <div class="price-total"><span>Total Price</span><span id="totalPrice">$3,820.00</span>
+                            <div class="price-row"><span>Taxes & Fees</span><span class="price-convert" data-base-price="120">$120.00</span></div>
+                            <div class="price-total"><span>Total Price</span><span id="totalPrice" class="price-convert" data-base-price="3820">$3,820.00</span>
                             </div>
                         </div>
-                        <button id="confirmPayment" style="background-color:  #1A6FDB; color:  #ffffff;;">Confirm &
-                            Pay</button>
+                        <button id="confirmPayment" style="background-color: #1A6FDB; color: #ffffff;">Confirm & Pay</button>
                         <p class="summary-small">By clicking "Confirm & Pay", you agree to our Terms of Service</p>
                     </div>
                 </div>
@@ -824,8 +823,19 @@
             const roomSurcharge = roomSurcharges[selectedRoom];
             const addonTotal = getAddonTotal();
             const total = basePrice + taxFee + roomSurcharge + addonTotal;
-            roomSurchargeEl.textContent = `$${roomSurcharge.toFixed(2)}`;
-            totalPriceEl.textContent = `$${total.toFixed(2)}`;
+            
+            // Update base prices for conversion
+            roomSurchargeEl.dataset.basePrice = roomSurcharge;
+            totalPriceEl.dataset.basePrice = total;
+            
+            // Trigger global price update
+            if (typeof updateAllPrices === 'function') {
+                updateAllPrices();
+            } else {
+                roomSurchargeEl.textContent = `$${roomSurcharge.toFixed(2)}`;
+                totalPriceEl.textContent = `$${total.toFixed(2)}`;
+            }
+            
             saveBookingData();
         }
 
@@ -890,6 +900,7 @@
     </script>
 
 
+    <script src="../js/main.js"></script>
     <script src="../js/components/header.js"></script>
     <script src="../js/components/footer.js"></script>
 </body>
