@@ -821,7 +821,7 @@
                         </div>
 
                         <div class="widget-action">
-                            <a href="booking.html"><button class="btn-book-now">BOOK NOW</button></a>
+                            <button class="btn-book-now">Check Availability</button>
                         </div>
 
                         <div class="widget-features">
@@ -865,6 +865,16 @@
     <script src="./../js/utils.js"></script>
     <script src="./../js/main.js"></script>
     <script src="./../js/pages/tourDetails.js"></script>
+
+    <!-- connect to  booking page  -->
+    <script>
+        // Add this to your <button> or script file
+        document.querySelector('.btn-book-now').addEventListener('click', function() {
+            window.location.href = 'booking.html';
+        });
+    </script>
+    
+
 </body>
 
 </html>
