@@ -1,8 +1,18 @@
 const bookingData = JSON.parse(localStorage.getItem("bookingData"));
 
-function setText(id, value) {
+function setText(id, value, isPrice = false) {
   const element = document.getElementById(id);
-  if (element && value) element.textContent = value;
+  if (!element || !value) return;
+  
+  if (isPrice) {
+    // Extract number from string like "USD 3,700.00" or "$3,700.00"
+    const numericValue = parseFloat(value.replace(/[^0-9.]/g, '')) || 0;
+    element.classList.add('price-convert');
+    element.dataset.basePrice = numericValue;
+    element.textContent = value; // main.js will override this
+  } else {
+    element.textContent = value;
+  }
 }
 
 function renderPriceBreakdown(rows) {
@@ -19,13 +29,21 @@ function renderPriceBreakdown(rows) {
 
     priceRow.className = "price-row";
     label.className = "price-label";
-    amount.className = "price-amount";
+    amount.className = "price-amount price-convert";
+    
+    // Extract numeric value from "USD 120.00"
+    const numericValue = parseFloat(row.amount.replace(/[^0-9.]/g, '')) || 0;
+    amount.dataset.basePrice = numericValue;
+    
     label.textContent = row.label;
     amount.textContent = row.amount;
 
     priceRow.append(label, amount);
     container.appendChild(priceRow);
   });
+  
+  // Trigger global update if available
+  if (typeof updateAllPrices === 'function') updateAllPrices();
 }
 
 if (bookingData) {
@@ -35,7 +53,7 @@ if (bookingData) {
   setText("summary-room", bookingData.room);
   setText("summary-date", bookingData.travelDates);
   setText("summary-travelers", bookingData.travelers);
-  setText("summary-total", bookingData.total);
+  setText("summary-total", bookingData.total, true);
   renderPriceBreakdown(bookingData.priceBreakdown);
 
   if (bookingData.addons && bookingData.addons.length > 0) {
@@ -45,51 +63,25 @@ if (bookingData) {
   }
 }
 
-document.querySelector(".btn-continue").addEventListener("click", function () {
-  const selected = document.querySelector('input[name="payment"]:checked');
-  if (!selected) {
-    alert("Please select a payment method first.");
-    return;
-  }
+const continueBtn = document.querySelector(".btn-continue");
+if (continueBtn) {
+  continueBtn.addEventListener("click", function () {
+    const selected = document.querySelector('input[name="payment"]:checked');
+    if (!selected) {
+      alert("Please select a payment method first.");
+      return;
+    }
 
-  localStorage.setItem("selectedPayment", selected.value);
-  localStorage.setItem(
-    "customerRequest",
-    document.getElementById("customer-request").value,
-  );
+    localStorage.setItem("selectedPayment", selected.value);
+    localStorage.setItem(
+      "customerRequest",
+      document.getElementById("customer-request").value,
+    );
 
-  if (selected.value == "credit-card") {
-    window.location.href = "confirm2.html";
-  } else {
-    alert("Please choose Credit Card to this page.");
-  }
-});
-
-const currencySelector = document.getElementById("currency-selector");
-
-if (currencySelector) {
-  currencySelector.addEventListener("click", function (e) {
-    this.classList.toggle("is-open");
-    e.stopPropagation();
-  });
-
-  document.addEventListener("click", function () {
-    currencySelector.classList.remove("is-open");
-  });
-
-  document.querySelectorAll(".currency-option").forEach(function (option) {
-    option.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const currency = this.dataset.currency;
-      document.getElementById("currency-label").textContent =
-        "Currency (" + currency + ")";
-      document.querySelectorAll(".currency-option").forEach(function (o) {
-        o.classList.remove("active");
-      });
-      this.classList.add("active");
-      localStorage.setItem("selectedCurrency", currency);
-      localStorage.setItem("currencyRate", this.dataset.rate);
-      currencySelector.classList.remove("is-open");
-    });
+    if (selected.value == "credit-card") {
+      window.location.href = "confirm2.html";
+    } else {
+      alert("Please choose Credit Card to this page.");
+    }
   });
 }

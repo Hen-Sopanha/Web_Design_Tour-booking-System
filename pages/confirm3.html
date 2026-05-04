@@ -393,7 +393,7 @@
 
         <div class="total-line">
           <span>Total Paid</span>
-          <span id="final-total">USD 75</span>
+          <span id="final-total" class="price-convert">USD 75</span>
         </div>
       </div>
     </div>
@@ -431,9 +431,15 @@
         if (bookingData.travelers)
           document.getElementById("travelers-count").textContent =
             bookingData.travelers;
-        if (bookingData.total)
-          document.getElementById("final-total").textContent =
-            bookingData.total;
+        if (bookingData.total) {
+          const finalTotalEl = document.getElementById("final-total");
+          const numericValue = parseFloat(bookingData.total.replace(/[^0-9.]/g, '')) || 0;
+          finalTotalEl.dataset.basePrice = numericValue;
+          finalTotalEl.textContent = bookingData.total;
+          
+          // Trigger conversion since header might not be present to dispatch event
+          if (typeof updateAllPrices === 'function') updateAllPrices();
+        }
       }
     };
   </script>

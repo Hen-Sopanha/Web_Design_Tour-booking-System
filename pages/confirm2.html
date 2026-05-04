@@ -605,13 +605,21 @@
 
         priceRow.className = "price-row";
         label.className = "price-label";
-        amount.className = "price-amount";
+        amount.className = "price-amount price-convert";
+        
+        // Extract numeric value from "USD 120.00"
+        const numericValue = parseFloat(row.amount.replace(/[^0-9.]/g, '')) || 0;
+        amount.dataset.basePrice = numericValue;
+        
         label.textContent = row.label;
         amount.textContent = row.amount;
 
         priceRow.append(label, amount);
         container.appendChild(priceRow);
       });
+      
+      // Trigger global update if available
+      if (typeof updateAllPrices === 'function') updateAllPrices();
     }
 
     if (bookingData) {
@@ -638,9 +646,13 @@
       else
         document.getElementById("summary-addons").textContent = "No add-ons";
 
-      if (bookingData.total)
-        document.getElementById("summary-total").textContent =
-          bookingData.total;
+      if (bookingData.total) {
+        const totalEl = document.getElementById("summary-total");
+        const numericValue = parseFloat(bookingData.total.replace(/[^0-9.]/g, '')) || 0;
+        totalEl.classList.add('price-convert');
+        totalEl.dataset.basePrice = numericValue;
+        totalEl.textContent = bookingData.total;
+      }
       renderPriceBreakdown(bookingData.priceBreakdown);
     }
 
@@ -795,7 +807,7 @@
   </script>
   <div id="footer-root"></div>
 
-  <!-- Scripts -->
+  <script src="./../js/main.js"></script>
   <script src="./../js/components/header.js"></script>
   <script src="./../js/components/footer.js"></script>
   <script src="./../js/utils.js"></script>
