@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const liveMsgSpan = document.getElementById('liveUpdateMsg');
   
       const destRates = {
-        kampot: 55,
+        kompot: 55,
         sihanoukville: 70,
         battambang: 48,
         siemreap: 85,
@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
       };
   
       const destNames = {
-        kampot: 'Kampot',
-        sihanoukville: 'Sihanoukville',
+        kompot: 'Kompot',
+        sihanoukville: 'Sihanoukvill',
         battambang: 'Battambang',
         siemreap: 'Siem Reap',
         kohkong: 'Koh Kong',
