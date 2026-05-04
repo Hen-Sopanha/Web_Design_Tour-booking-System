@@ -1,711 +1,701 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Payment Details</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./../styles/base.css" />
-    <link rel="stylesheet" href="./../styles/components.css" />
-    <link rel="stylesheet" href="./../styles/layout.css" />
-    <link rel="stylesheet" href="./../styles/pages.css" />
-    <link rel="stylesheet" href="./../styles/responsive.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Details</title>
 
-    <style>
-      :root {
-        --blue-50: #eff6ff;
-        --blue-100: #dbeafe;
-        --blue-400: #60a5fa;
-        --blue-500: #3b82f6;
-        --blue-600: #2563eb;
-        --blue-700: #1d4ed8;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-400: #9ca3af;
-        --gray-500: #6b7280;
-        --gray-700: #374151;
-        --gray-900: #111827;
-        --white: #ffffff;
-        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-        --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
-        --radius-sm: 8px;
-        --radius-md: 12px;
-        --radius-lg: 16px;
-      }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./../styles/base.css" />
+  <link rel="stylesheet" href="./../styles/components.css" />
+  <link rel="stylesheet" href="./../styles/layout.css" />
+  <link rel="stylesheet" href="./../styles/pages.css" />
+  <link rel="stylesheet" href="./../styles/responsive.css" />
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
+  <style>
+    :root {
+      --blue-50: #eff6ff;
+      --blue-100: #dbeafe;
+      --blue-400: #60a5fa;
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --blue-700: #1d4ed8;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
 
-      body {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        background: var(--gray-50);
-        color: var(--gray-900);
-        min-height: 100vh;
-      }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-      button,
-      input,
-      textarea {
-        font-family: inherit;
-      }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      min-height: 100vh;
+    }
 
-      .page-header {
-        background: linear-gradient(
-          135deg,
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+    .page-header {
+      background: linear-gradient(135deg,
           var(--blue-600) 0%,
           var(--blue-500) 60%,
-          var(--blue-400) 100%
-        );
-        padding: 36px 32px;
-        position: relative;
-        overflow: hidden;
-      }
+          var(--blue-400) 100%);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
 
-      .page-header::before {
-        content: "";
-        position: absolute;
-        top: -40px;
-        right: -40px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.06);
-      }
+    .page-header::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+    }
 
-      .page-header::after {
-        content: "";
-        position: absolute;
-        bottom: -60px;
-        left: 30%;
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.04);
-      }
+    .page-header::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: 30%;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+    }
 
-      .page-header-inner {
-        position: relative;
-        z-index: 1;
-      }
+    .page-header-inner {
+      position: relative;
+      z-index: 1;
+    }
 
-      .breadcrumb {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 14px;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.6);
-      }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+    }
 
-      .breadcrumb a {
-        color: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
-        transition: color 0.15s;
-      }
+    .breadcrumb a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
 
-      .breadcrumb a:hover {
-        color: var(--white);
-      }
+    .breadcrumb a:hover {
+      color: var(--white);
+    }
 
-      .page-header h1 {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        font-size: 28px;
-        font-weight: 400;
-        color: var(--white);
-      }
+    .page-header h1 {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--white);
+    }
 
-      .page-header p {
-        margin: 6px 0 0;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.75);
-      }
+    .page-header p {
+      margin: 6px 0 0;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+    }
 
+    .page-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 1024px) {
       .page-body {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 32px 24px 48px;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      @media (min-width: 1024px) {
-        .page-body {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-
-      .card {
-        width: 100% !important;
-        position: static !important;
-        overflow: hidden;
-        background: var(--white);
-        border: 1px solid var(--gray-200);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-      }
-
-      .page-body > .card {
-        transform: none !important;
-      }
-
-      .page-body > .card:hover {
-        transform: none !important;
-      }
-
-      .page-body .card p {
-        position: static !important;
-      }
-
-      .card-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 18px 24px;
-        border-bottom: 1px solid var(--gray-100);
-      }
-
-      .card-header-icon {
-        width: 34px;
-        height: 34px;
-        border-radius: var(--radius-sm);
-        background: var(--blue-50);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--blue-600);
-        font-size: 15px;
-        flex-shrink: 0;
-      }
-
-      .card-header h2 {
-        margin: 0;
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--gray-900);
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-      }
-
-      .summary-location {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 18px 24px;
-        background: var(--blue-50);
-        border-bottom: 1px solid var(--blue-100);
-      }
-
-      .location-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: var(--blue-500);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--white);
-        font-size: 18px;
-        flex-shrink: 0;
-      }
-
-      .location-text h3 {
-        margin: 0;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--gray-900);
-      }
-
-      .location-text p {
-        margin: 0;
-        padding: 0;
-        background: var(--blue-50);
-        color: var(--gray-900);
-        font-size: 12px;
-      }
-
-      .summary-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 13px 24px;
-        border-bottom: 1px solid var(--gray-100);
-      }
-
-      .row-icon {
-        width: 30px;
-        height: 30px;
-        border-radius: 6px;
-        background: var(--gray-100);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--gray-500);
-        font-size: 12px;
-        flex-shrink: 0;
-      }
-
-      .row-label {
-        flex: 1;
-        color: var(--gray-500);
-        font-size: 13px;
-        font-weight: 500;
-      }
-
-      .row-value {
-        color: var(--gray-900);
-        font-size: 13px;
-        font-weight: 600;
-      }
-
-      .price-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 11px 24px;
-        border-bottom: 1px solid var(--gray-100);
-        font-size: 13px;
-      }
-
-      .price-label {
-        color: var(--gray-500);
-      }
-
-      .price-amount {
-        color: var(--gray-900);
-        font-weight: 600;
-      }
-
-      .price-total {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 24px;
-        background: var(--blue-50);
-      }
-
-      .total-label {
-        color: var(--gray-900);
-        font-size: 15px;
-        font-weight: 700;
-      }
-
-      .total-amount {
-        color: var(--blue-600);
-        font-size: 24px;
-        font-weight: 700;
-      }
-
-      .selected-method {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 16px 24px;
-        border-bottom: 1px solid var(--gray-100);
-      }
-
-      .selected-method span {
-        flex: 1;
-        color: var(--gray-900);
-        font-size: 14px;
-        font-weight: 600;
-      }
-
-      .selected-method img {
-        width: auto;
-        height: 26px;
-        object-fit: contain;
-      }
-
-      .form-area {
-        padding: 20px 24px 0;
-      }
-
-      .card-form h2 {
-        margin: 0 0 16px;
-        color: var(--gray-900);
-        font-size: 24px;
-        font-weight: 700;
-      }
-
-      .form-group {
-        margin-bottom: 14px;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 6px;
-        color: var(--gray-700);
-        font-size: 12px;
-        font-weight: 600;
-      }
-
-      .form-group input {
-        width: 100%;
-        padding: 11px 12px;
-        border: 1px solid var(--gray-200);
-        border-radius: var(--radius-sm);
-        color: var(--gray-900);
-        font-size: 14px;
-      }
-
-      .form-group input:focus {
-        outline: none;
-        border-color: var(--blue-500);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
-      }
-
-      .input-with-logos {
-        position: relative;
-      }
-
-      .input-with-logos input {
-        padding-right: 130px;
-      }
-
-      .input-logos {
-        position: absolute;
-        top: 50%;
-        right: 12px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        transform: translateY(-50%);
-        pointer-events: none;
-      }
-
-      .input-logos img {
-        width: auto;
-        max-width: 48px;
-        height: 18px;
-        object-fit: contain;
-      }
-
-      .form-row {
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
       }
+    }
 
-      .qr-panel {
-        text-align: center;
-      }
+    .card {
+      width: 100% !important;
+      position: static !important;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
 
-      .qr-panel p {
-        margin: 12px 0;
-        color: var(--gray-500);
-        font-size: 14px;
-      }
+    .page-body>.card {
+      transform: none !important;
+    }
 
-      .qr-logo {
-        max-width: 120px;
-        max-height: 48px;
-        width: auto;
-        object-fit: contain;
-      }
+    .page-body>.card:hover {
+      transform: none !important;
+    }
 
-      .qr-placeholder {
-        width: 150px;
-        height: 150px;
-        margin: 16px auto;
-        border-radius: var(--radius-md);
-        background: var(--gray-100);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--gray-500);
-        font-size: 13px;
-      }
+    .page-body .card p {
+      position: static !important;
+    }
 
-      .btn-pay,
-      .btn-secondary {
-        width: 100%;
-        border: none;
-        border-radius: var(--radius-md);
-        color: var(--white);
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-      }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--gray-100);
+    }
 
-      .btn-pay {
-        padding: 15px;
-        background: var(--blue-600);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      }
+    .card-header-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: var(--blue-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-600);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
 
-      .btn-pay:hover {
-        background: var(--blue-700);
-      }
+    .card-header h2 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-900);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
 
-      .btn-secondary {
-        padding: 13px;
-        background: var(--gray-400);
-      }
+    .summary-location {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 24px;
+      background: var(--blue-50);
+      border-bottom: 1px solid var(--blue-100);
+    }
 
-      .request-card {
-        grid-column: 1 / -1;
-      }
+    .location-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
 
-      .request-card textarea {
-        width: 100%;
-        min-height: 110px;
-        padding: 16px 24px;
-        background: var(--gray-50);
-        border: none;
-        color: var(--gray-700);
-        font-family: inherit;
-        font-size: 14px;
-        line-height: 1.6;
-        resize: vertical;
-      }
+    .location-text h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
 
-      .request-card textarea:focus {
-        outline: none;
-        background: var(--white);
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Page Header -->
-    <div id="header-root"></div>
-    <div class="page-header">
-      <div class="page-header-inner">
-        <div class="breadcrumb">
-          <a href="/pages/index.html">Home</a><span class="separator">></span>
-          <a href="/pages/tour-listing.html">Tour-Listing</a><span class="separator">></span>
-          <a href="/pages/tour-details.html">Tour-Details</a><span class="separator">></span>
-          <a href="/pages/booking.html">Tour-Booking</a><span class="separator">></span>
-          <a href="/pages/confirm.html">Payment Methods</a><span class="separator">></span>
-          <a href="/pages/confirm2.html">Payment Details</a>
+    .location-text p {
+      margin: 0;
+      padding: 0;
+      background: var(--blue-50);
+      color: var(--gray-900);
+      font-size: 12px;
+    }
+
+    .summary-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 24px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .row-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-500);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .row-label {
+      flex: 1;
+      color: var(--gray-500);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .row-value {
+      color: var(--gray-900);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 24px;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 13px;
+    }
+
+    .price-label {
+      color: var(--gray-500);
+    }
+
+    .price-amount {
+      color: var(--gray-900);
+      font-weight: 600;
+    }
+
+    .price-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      background: var(--blue-50);
+    }
+
+    .total-label {
+      color: var(--gray-900);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .total-amount {
+      color: var(--blue-600);
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .selected-method {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .selected-method span {
+      flex: 1;
+      color: var(--gray-900);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .selected-method img {
+      width: auto;
+      height: 26px;
+      object-fit: contain;
+    }
+
+    .form-area {
+      padding: 20px 24px 0;
+    }
+
+    .card-form h2 {
+      margin: 0 0 16px;
+      color: var(--gray-900);
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gray-700);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      color: var(--gray-900);
+      font-size: 14px;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--blue-500);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+    }
+
+    .input-with-logos {
+      position: relative;
+    }
+
+    .input-with-logos input {
+      padding-right: 130px;
+    }
+
+    .input-logos {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .input-logos img {
+      width: auto;
+      max-width: 48px;
+      height: 18px;
+      object-fit: contain;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .qr-panel {
+      text-align: center;
+    }
+
+    .qr-panel p {
+      margin: 12px 0;
+      color: var(--gray-500);
+      font-size: 14px;
+    }
+
+    .qr-logo {
+      max-width: 120px;
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .qr-placeholder {
+      width: 150px;
+      height: 150px;
+      margin: 16px auto;
+      border-radius: var(--radius-md);
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-500);
+      font-size: 13px;
+    }
+
+    .btn-pay,
+    .btn-secondary {
+      width: 100%;
+      border: none;
+      border-radius: var(--radius-md);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-pay {
+      padding: 15px;
+      background: var(--blue-600);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-pay:hover {
+      background: var(--blue-700);
+    }
+
+    .btn-secondary {
+      padding: 13px;
+      background: var(--gray-400);
+    }
+
+    .request-card {
+      grid-column: 1 / -1;
+    }
+
+    .request-card textarea {
+      width: 100%;
+      min-height: 110px;
+      padding: 16px 24px;
+      background: var(--gray-50);
+      border: none;
+      color: var(--gray-700);
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.6;
+      resize: vertical;
+    }
+
+    .request-card textarea:focus {
+      outline: none;
+      background: var(--white);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Page Header -->
+  <div id="header-root"></div>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="separator">></span>
+        <a href="tour-listing.html">Tour-Listing</a><span class="separator">></span>
+        <a href="tour-details.html">Tour-Details</a><span class="separator">></span>
+        <a href="booking.html">Tour-Booking</a><span class="separator">></span>
+        <a href="confirm.html">Payment Methods</a><span class="separator">></span>
+        <a href="confirm2.html">Payment Details</a>
+      </div>
+      <h1 id="page-title">Enter Payment Details</h1>
+      <p>Enter your payment information to complete your booking securely.</p>
+    </div>
+  </div>
+
+  <div class="page-body">
+    <!-- LEFT: SUMMARY -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <i class="fa-solid fa-receipt"></i>
         </div>
-        <h1 id="page-title">Enter Payment Details</h1>
-        <p>Enter your payment information to complete your booking securely.</p>
+        <h2>Booking Summary</h2>
+      </div>
+
+      <div class="summary-location">
+        <div class="location-icon">
+          <i class="fa-solid fa-location-dot"></i>
+        </div>
+        <div class="location-text">
+          <h3 id="summary-tour-name">Kampot Adventure</h3>
+          <p id="summary-location">Cambodia, Kampot</p>
+        </div>
+      </div>
+
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-user"></i></div>
+        <span class="row-label">Traveler</span>
+        <span class="row-value" id="summary-name">—</span>
+      </div>
+
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-bed"></i></div>
+        <span class="row-label">Room Type</span>
+        <span class="row-value" id="summary-room">—</span>
+      </div>
+
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-star"></i></div>
+        <span class="row-label">Add-ons</span>
+        <span class="row-value" id="summary-addons">—</span>
+      </div>
+
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-calendar"></i></div>
+        <span class="row-label">Travel Dates</span>
+        <span class="row-value" id="summary-date">May 15 - 22, 2026</span>
+      </div>
+
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-user-group"></i></div>
+        <span class="row-label">Travelers</span>
+        <span class="row-value" id="summary-travelers">-</span>
+      </div>
+
+      <div id="summary-price-breakdown"></div>
+
+      <div class="price-total">
+        <span class="total-label">Total Cost</span>
+        <span class="total-amount" id="summary-total">USD 75</span>
       </div>
     </div>
 
-    <div class="page-body">
-      <!-- LEFT: SUMMARY -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-header-icon">
-            <i class="fa-solid fa-receipt"></i>
-          </div>
-          <h2>Booking Summary</h2>
+    <!-- RIGHT: PAYMENT -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <i class="fa-solid fa-credit-card"></i>
         </div>
-
-        <div class="summary-location">
-          <div class="location-icon">
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
-          <div class="location-text">
-            <h3 id="summary-tour-name">Kampot Adventure</h3>
-            <p id="summary-location">Cambodia, Kampot</p>
-          </div>
-        </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-user"></i></div>
-          <span class="row-label">Traveler</span>
-          <span class="row-value" id="summary-name">—</span>
-        </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-bed"></i></div>
-          <span class="row-label">Room Type</span>
-          <span class="row-value" id="summary-room">—</span>
-        </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-star"></i></div>
-          <span class="row-label">Add-ons</span>
-          <span class="row-value" id="summary-addons">—</span>
-        </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-calendar"></i></div>
-          <span class="row-label">Travel Dates</span>
-          <span class="row-value" id="summary-date">May 15 - 22, 2026</span>
-        </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-user-group"></i></div>
-          <span class="row-label">Travelers</span>
-          <span class="row-value" id="summary-travelers">-</span>
-        </div>
-
-        <div id="summary-price-breakdown"></div>
-
-        <div class="price-total">
-          <span class="total-label">Total Cost</span>
-          <span class="total-amount" id="summary-total">USD 75</span>
-        </div>
+        <h2>Payment Details</h2>
       </div>
 
-      <!-- RIGHT: PAYMENT -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-header-icon">
-            <i class="fa-solid fa-credit-card"></i>
-          </div>
-          <h2>Payment Details</h2>
-        </div>
+      <div class="selected-method" id="selected-method-display"></div>
 
-        <div class="selected-method" id="selected-method-display"></div>
+      <div class="form-area" id="payment-form-area"></div>
 
-        <div class="form-area" id="payment-form-area"></div>
-
-        <div style="padding: 20px">
-          <button
-            class="btn-secondary"
-            onclick="location.href = 'confirm.html'"
-          >
-            Back
-          </button>
-        </div>
-      </div>
-
-      <!-- REQUEST -->
-      <div class="card request-card">
-        <div class="card-header">
-          <div class="card-header-icon">
-            <i class="fa-solid fa-comment-dots"></i>
-          </div>
-          <h2>Customer Requests</h2>
-        </div>
-
-        <textarea
-          placeholder="Any dietary requirements, allergies, room preferences, pickup location, or special requests? Let us know here..."
-        ></textarea>
+      <div style="padding: 20px">
+        <button class="btn-secondary" onclick="location.href = 'confirm.html'">
+          Back
+        </button>
       </div>
     </div>
-    <script>
-      const bookingData = JSON.parse(localStorage.getItem("bookingData"));
 
-      function renderPriceBreakdown(rows) {
-        const container = document.getElementById("summary-price-breakdown");
-        if (!container) return;
+    <!-- REQUEST -->
+    <div class="card request-card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <i class="fa-solid fa-comment-dots"></i>
+        </div>
+        <h2>Customer Requests</h2>
+      </div>
 
-        container.innerHTML = "";
-        if (!Array.isArray(rows) || rows.length === 0) return;
+      <textarea
+        placeholder="Any dietary requirements, allergies, room preferences, pickup location, or special requests? Let us know here..."></textarea>
+    </div>
+  </div>
+  <script>
+    const bookingData = JSON.parse(localStorage.getItem("bookingData"));
 
-        rows.forEach((row) => {
-          const priceRow = document.createElement("div");
-          const label = document.createElement("span");
-          const amount = document.createElement("span");
+    function renderPriceBreakdown(rows) {
+      const container = document.getElementById("summary-price-breakdown");
+      if (!container) return;
 
-          priceRow.className = "price-row";
-          label.className = "price-label";
-          amount.className = "price-amount";
-          label.textContent = row.label;
-          amount.textContent = row.amount;
+      container.innerHTML = "";
+      if (!Array.isArray(rows) || rows.length === 0) return;
 
-          priceRow.append(label, amount);
-          container.appendChild(priceRow);
-        });
-      }
+      rows.forEach((row) => {
+        const priceRow = document.createElement("div");
+        const label = document.createElement("span");
+        const amount = document.createElement("span");
 
-      if (bookingData) {
-        if (bookingData.tourName)
-          document.getElementById("summary-tour-name").textContent =
-            bookingData.tourName;
-        if (bookingData.location)
-          document.getElementById("summary-location").textContent =
-            bookingData.location;
-        if (bookingData.name)
-          document.getElementById("summary-name").textContent = bookingData.name;
-        if (bookingData.room)
-          document.getElementById("summary-room").textContent =
-            bookingData.room;
-        if (bookingData.travelDates)
-          document.getElementById("summary-date").textContent =
-            bookingData.travelDates;
-        if (bookingData.travelers)
-          document.getElementById("summary-travelers").textContent =
-            bookingData.travelers;
-        if (bookingData.addons && bookingData.addons.length > 0)
-          document.getElementById("summary-addons").textContent =
-            bookingData.addons.join(", ");
-        else
-          document.getElementById("summary-addons").textContent = "No add-ons";
+        priceRow.className = "price-row";
+        label.className = "price-label";
+        amount.className = "price-amount";
+        label.textContent = row.label;
+        amount.textContent = row.amount;
 
-        if (bookingData.total)
-          document.getElementById("summary-total").textContent =
-            bookingData.total;
-        renderPriceBreakdown(bookingData.priceBreakdown);
-      }
+        priceRow.append(label, amount);
+        container.appendChild(priceRow);
+      });
+    }
 
-      // payment method info
-      const methods = {
-        "credit-card": {
-          name: "Credit Card",
-          logos: [
-            "../assets/logo/Visa-Logo.jpg",
-            "../assets/logo/Mastercard-Logo.png",
-          ],
-          type: "card",
-        },
-        aba: {
-          name: "ABA Bank",
-          logos: ["../assets/logo/Aba-Logo.png"],
-          type: "aba",
-        },
-        alipay: {
-          name: "Alipay",
-          logos: ["../assets/logo/Alipay-Logo.png"],
-          type: "qr",
-        },
-        applepay: {
-          name: "Apple Pay",
-          logos: ["../assets/logo/ApplePay-Logo.png"],
-          type: "card",
-        },
-        paypal: {
-          name: "PayPal",
-          logos: ["../assets/logo/Paypal-Logo.png"],
-          type: "qr",
-        },
-      };
+    if (bookingData) {
+      if (bookingData.tourName)
+        document.getElementById("summary-tour-name").textContent =
+          bookingData.tourName;
+      if (bookingData.location)
+        document.getElementById("summary-location").textContent =
+          bookingData.location;
+      if (bookingData.name)
+        document.getElementById("summary-name").textContent = bookingData.name;
+      if (bookingData.room)
+        document.getElementById("summary-room").textContent =
+          bookingData.room;
+      if (bookingData.travelDates)
+        document.getElementById("summary-date").textContent =
+          bookingData.travelDates;
+      if (bookingData.travelers)
+        document.getElementById("summary-travelers").textContent =
+          bookingData.travelers;
+      if (bookingData.addons && bookingData.addons.length > 0)
+        document.getElementById("summary-addons").textContent =
+          bookingData.addons.join(", ");
+      else
+        document.getElementById("summary-addons").textContent = "No add-ons";
 
-      // read selected payment from localStorage
-      const selected = localStorage.getItem("selectedPayment") || "credit-card";
-      const method = methods[selected];
+      if (bookingData.total)
+        document.getElementById("summary-total").textContent =
+          bookingData.total;
+      renderPriceBreakdown(bookingData.priceBreakdown);
+    }
 
-      // update page title
-      document.getElementById("page-title").textContent =
-        "Enter " + method.name + " Details";
+    // payment method info
+    const methods = {
+      "credit-card": {
+        name: "Credit Card",
+        logos: [
+          "../assets/logo/Visa-Logo.jpg",
+          "../assets/logo/Mastercard-Logo.png",
+        ],
+        type: "card",
+      },
+      aba: {
+        name: "ABA Bank",
+        logos: ["../assets/logo/Aba-Logo.png"],
+        type: "aba",
+      },
+      alipay: {
+        name: "Alipay",
+        logos: ["../assets/logo/Alipay-Logo.png"],
+        type: "qr",
+      },
+      applepay: {
+        name: "Apple Pay",
+        logos: ["../assets/logo/ApplePay-Logo.png"],
+        type: "card",
+      },
+      paypal: {
+        name: "PayPal",
+        logos: ["../assets/logo/Paypal-Logo.png"],
+        type: "qr",
+      },
+    };
 
-      // update selected method display
-      const methodDisplay = document.getElementById("selected-method-display");
-      methodDisplay.innerHTML = `
+    // read selected payment from localStorage
+    const selected = localStorage.getItem("selectedPayment") || "credit-card";
+    const method = methods[selected];
+
+    // update page title
+    document.getElementById("page-title").textContent =
+      "Enter " + method.name + " Details";
+
+    // update selected method display
+    const methodDisplay = document.getElementById("selected-method-display");
+    methodDisplay.innerHTML = `
         <span>${method.name}</span>
         ${method.logos.map((src) => `<img src="${src}" alt="${method.name}" />`).join("")}
       `;
 
-      // render correct form based on type
-      const formArea = document.getElementById("payment-form-area");
+    // render correct form based on type
+    const formArea = document.getElementById("payment-form-area");
 
-      if (method.type === "card") {
-        // credit card / apple pay form
-        formArea.innerHTML = `
+    if (method.type === "card") {
+      // credit card / apple pay form
+      formArea.innerHTML = `
           <div class="card-form">
             <h2>Enter Card Details</h2>
 
@@ -739,25 +729,25 @@
           </div>
         `;
 
-        // Auto format card fields. Users type digits; spaces and slash are added.
-        const cardNumberInput = document.getElementById("card-number");
-        const expiryInput = document.getElementById("expiry");
+      // Auto format card fields. Users type digits; spaces and slash are added.
+      const cardNumberInput = document.getElementById("card-number");
+      const expiryInput = document.getElementById("expiry");
 
-        cardNumberInput.addEventListener("input", function () {
-          const digits = this.value.replace(/\D/g, "").slice(0, 16);
-          this.value = digits.replace(/(.{4})/g, "$1 ").trim();
-        });
+      cardNumberInput.addEventListener("input", function () {
+        const digits = this.value.replace(/\D/g, "").slice(0, 16);
+        this.value = digits.replace(/(.{4})/g, "$1 ").trim();
+      });
 
-        expiryInput.addEventListener("input", function () {
-          const digits = this.value.replace(/\D/g, "").slice(0, 4);
-          this.value =
-            digits.length > 2
-              ? `${digits.slice(0, 2)} / ${digits.slice(2)}`
-              : digits;
-        });
-      } else if (method.type === "qr") {
-        // alipay / paypal - show QR or redirect message
-        formArea.innerHTML = `
+      expiryInput.addEventListener("input", function () {
+        const digits = this.value.replace(/\D/g, "").slice(0, 4);
+        this.value =
+          digits.length > 2
+            ? `${digits.slice(0, 2)} / ${digits.slice(2)}`
+            : digits;
+      });
+    } else if (method.type === "qr") {
+      // alipay / paypal - show QR or redirect message
+      formArea.innerHTML = `
           <div class="qr-panel">
             <img class="qr-logo" src="${method.logos[0]}" alt="${method.name}" />
             <p>You will be redirected to <strong>${method.name}</strong> to complete your payment securely.</p>
@@ -768,9 +758,9 @@
             <button class="btn-pay" onclick="handlePay()">Pay via ${method.name}</button>
           </div>
         `;
-      } else if (method.type === "aba") {
-        // ABA - no card input needed, just confirm
-        formArea.innerHTML = `
+    } else if (method.type === "aba") {
+      // ABA - no card input needed, just confirm
+      formArea.innerHTML = `
           <div class="qr-panel">
             <img class="qr-logo" src="${method.logos[0]}" alt="ABA Bank" />
             <p>You will be redirected to <strong>ABA Bank</strong> internet banking to complete your payment.</p>
@@ -781,34 +771,35 @@
             <button class="btn-pay" onclick="handlePay()">Pay via ABA</button>
           </div>
         `;
-      }
+    }
 
-      // handle pay button
-      function handlePay() {
-        if (method.type === "card") {
-          const number = document
-            .getElementById("card-number")
-            .value.replace(/\s/g, "");
-          const expiry = document.getElementById("expiry").value;
-          const cvv = document.getElementById("cvv").value;
-          const name = document.getElementById("card-name").value;
+    // handle pay button
+    function handlePay() {
+      if (method.type === "card") {
+        const number = document
+          .getElementById("card-number")
+          .value.replace(/\s/g, "");
+        const expiry = document.getElementById("expiry").value;
+        const cvv = document.getElementById("cvv").value;
+        const name = document.getElementById("card-name").value;
 
-          if (number.length < 16 || !expiry || cvv.length < 3 || !name) {
-            alert("Please fill in all card details correctly.");
-            return;
-          }
+        if (number.length < 16 || !expiry || cvv.length < 3 || !name) {
+          alert("Please fill in all card details correctly.");
+          return;
         }
-
-        window.location.href = "confirm3.html";
       }
-    </script>
-    <div id="footer-root"></div>
 
-    <!-- Scripts -->
-    <script src="./../js/components/header.js"></script>
-    <script src="./../js/components/footer.js"></script>
-    <script src="./../js/utils.js"></script>
-    <script src="./../js/main.js"></script>
-    <script src="./../js/pages/tourDetails.js"></script>
-  </body>
+      window.location.href = "confirm3.html";
+    }
+  </script>
+  <div id="footer-root"></div>
+
+  <!-- Scripts -->
+  <script src="./../js/components/header.js"></script>
+  <script src="./../js/components/footer.js"></script>
+  <script src="./../js/utils.js"></script>
+  <script src="./../js/main.js"></script>
+  <script src="./../js/pages/tourDetails.js"></script>
+</body>
+
 </html>
