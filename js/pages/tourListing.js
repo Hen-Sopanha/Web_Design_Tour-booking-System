@@ -31,24 +31,4 @@ if (closeBtn) {
     lightbox.style.display = "none";
   });
 }
-// 1. Select the input field
-const searchInput = document.querySelector(".search-box input");
-
-// 2. Listen for typing (the 'input' event triggers on every keystroke)
-searchInput.addEventListener("input", function () {
-  const searchTerm = this.value.toLowerCase(); // What the user typed
-  const cards = document.querySelectorAll(".tour-card"); // All tour cards
-
-  cards.forEach(card => {
-    // Get the text from the <h3> tag (e.g., "Tour A")
-    const tourName = card.querySelector("h3").textContent.toLowerCase();
-
-    // Check if the tour name includes the typed letter(s)
-    if (tourName.includes(searchTerm)) {
-      card.style.display = "block"; // Show match
-    } else {
-      card.style.display = "none";  // Hide others
-    }
-  });
-});
 });
