@@ -1,81 +1,54 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const images = document.querySelectorAll(".tour-card img");
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-  const closeBtn = document.getElementById("closeBtn");
-  const filter = document.getElementById("tourFilter");
-  const cards = document.querySelectorAll(".tour-card");
+Document.addEventListener("DOMContentLoaded", function () {
+const images = document.querySelectorAll(".tour-card img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const closeBtn = document.getElementById("closeBtn");
 
-  // 1. OPEN Lightbox
-  images.forEach(img => {
-    img.addEventListener("click", function () {
-      lightbox.style.display = "flex";
-      lightboxImg.src = this.getAttribute("src");
-    });
+// 1. OPEN Lightbox
+images.forEach(img => {
+  img.addEventListener("click", function () {
+    lightbox.style.display = "flex";
+    // Using getAttribute ensures we grab the path exactly as written in HTML
+    lightboxImg.src = this.getAttribute("src"); 
   });
+});
 
-  // 2. CLOSE when clicking the photo
-  lightboxImg.addEventListener("click", function () {
+// 2. CLOSE when clicking the BIG PHOTO (Back to small)
+lightboxImg.addEventListener("click", function () {
+  lightbox.style.display = "none";
+});
+
+// 3. CLOSE when clicking the background (outside the photo)
+lightbox.addEventListener("click", function (e) {
+  if (e.target === lightbox) {
+    lightbox.style.display = "none";
+  }
+});
+
+// 4. CLOSE with the button
+if (closeBtn) {
+  closeBtn.addEventListener("click", function () {
     lightbox.style.display = "none";
   });
-
-  // 3. CLOSE when clicking background
-  lightbox.addEventListener("click", function (e) {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
-  });
-
-  // 4. CLOSE with button
-  if (closeBtn) {
-    closeBtn.addEventListener("click", function () {
-      lightbox.style.display = "none";
-    });
-  }
-
-  // 5. FILTER LOGIC
-  if (filter) {
-    filter.addEventListener("change", function () {
-      const value = this.value;
-
-      cards.forEach(card => {
-        const category = card.getAttribute("data-category");
-
-        if (value === "all" || category === value) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    });
-    // DELETED the broken "filter.addEventListener("change", ...)" line from here
-  }
-
+}
+// 1. Select the input field
 const searchInput = document.querySelector(".search-box input");
-const searchBtn = document.querySelector(".search-btn");
 
-function performSearch() {
-  const searchTerm = searchInput.value.toLowerCase();
+// 2. Listen for typing (the 'input' event triggers on every keystroke)
+searchInput.addEventListener("input", function () {
+  const searchTerm = this.value.toLowerCase(); // What the user typed
+  const cards = document.querySelectorAll(".tour-card"); // All tour cards
 
   cards.forEach(card => {
-    // This looks at the text inside the <h3> tag (e.g., "Tour F")
-    const tourTitle = card.querySelector("h3").textContent.toLowerCase();
+    // Get the text from the <h3> tag (e.g., "Tour A")
+    const tourName = card.querySelector("h3").textContent.toLowerCase();
 
-    if (tourTitle.includes(searchTerm)) {
-      card.style.display = "block";
+    // Check if the tour name includes the typed letter(s)
+    if (tourName.includes(searchTerm)) {
+      card.style.display = "block"; // Show match
     } else {
-      card.style.display = "none";
+      card.style.display = "none";  // Hide others
     }
   });
-}
-
-// Trigger search when the button is clicked
-searchBtn.addEventListener("click", performSearch);
-
-// Optional: Trigger search when the user presses "Enter" in the input box
-searchInput.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    performSearch();
-  }
 });
 });

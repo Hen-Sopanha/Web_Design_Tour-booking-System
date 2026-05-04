@@ -220,16 +220,16 @@ width: 100%;
   <section class="tour-container">
 
     <!-- Row 1 -->
-     <div class="tour-card" data-category="A">
+     <div class="tour-card">
          <img src ="../assets/video/images/TourA.jpg">
-        <h3>Tour A</h3>
+        <h3h3>Tour A</h3h3>
          <p>2 day-1 night</p>
          <p>⭐ 4.8</p>
         <p>$70 for one person</p>
         <a href="tour-details.html">View details</a>
     </div>
 
-  <div class="tour-card" data-category="B">
+  <div class="tour-card">
     <img src="../assets/video/images/TourB.jpg">
     <h3>Tour B</h3>
     <p>3 day-2 night</p>
@@ -238,7 +238,7 @@ width: 100%;
     <a href="tour-details.html">View details</a>
   </div>
 
-  <div class="tour-card" data-category="C">
+  <div class="tour-card">
     <img src="../assets/video/images/TourC.jpg">
     <h3>Tour C</h3>
     <p>3 day-2 night</p>
@@ -248,7 +248,7 @@ width: 100%;
   </div>
 
   <!-- Row 2 -->
-  <div class="tour-card" data-category="D">
+  <div class="tour-card">
     <img src="../assets/video/images/TourD.jpg">
     <h3>Tour D</h3>
     <p>4 day-3 night</p>
@@ -257,7 +257,7 @@ width: 100%;
     <a href="tour-details.html">View details</a>
   </div>
 
-  <div class="tour-card" data-category="E">
+  <div class="tour-card">
     <img src="../assets/video/images/TourE.jpg">
     <h3>Tour E</h3>
     <p>4 day-3 night</p>
@@ -266,9 +266,9 @@ width: 100%;
     <a href="tour-details.html">View details</a>
   </div>
 
-  <div class="tour-card" data-category="F">
+  <div class="tour-card">
     <img src="../assets/video/images/TourF.jpg">
-    <h3h3>Tour F</h3h3>
+    <h3>Tour F</h3>
     <p>1 Week</p>
     <p>⭐ 4.9</p>
     <p>$240 for one person</p>
@@ -280,18 +280,7 @@ width: 100%;
   <img id="lightboxImg">
 </div>
 </section>
-<select id="tourFilter">
-  <option value="all">All Tours</option>
-  <option value="A">Tour A</option>
-  <option value="B">Tour B</option>
-  <option value="C">Tour C</option>
-  <option value="D">Tour D</option>
-  <option value="E">Tour E</option>
-  <option value="F">Tour F</option>
-</select>
 <script>
-  <t src="./../js/pages/tourListing.js"></t>
-  const tourCards = document.querySelectorAll(".tour-card");
 const images = document.querySelectorAll(".tour-card img");
 
 images.forEach(img => {
@@ -311,6 +300,7 @@ document.getElementById("closeBtn").addEventListener("click", function () {
 
 <section class="customize-section">
   <div class="customize-container">
+
     
    
     <div class="video-box">
@@ -332,7 +322,7 @@ document.getElementById("closeBtn").addEventListener("click", function () {
 
   </div>
 </section>
-
+<script src="./../js/pages/tourListing.js"></script>
   <!-- Footer mount point -->
     <div id="footer-root"></div>
 

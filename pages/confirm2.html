@@ -303,7 +303,7 @@
       .btn-back:hover {
         background: #718096;
       }
-            .request-section {
+      .request-section {
         margin: 0 20px 20px 20px;
         background: #dbeafe;
         border: 1px solid #d1d5db;
@@ -312,7 +312,7 @@
         grid-column: 1 / -1; /* spans all columns */
       }
 
-     .request-section {
+      .request-section {
         margin: 0 20px 20px 20px;
         background: #dbeafe;
         border: 1px solid #d1d5db;
@@ -349,7 +349,9 @@
     </style>
   </head>
   <body>
+    
     <!-- Page Header -->
+     <div id="header-root"></div>
     <div class="page-header">
       <h1 id="page-title">Enter Payment Details</h1>
     </div>
@@ -428,7 +430,6 @@
         </textarea>
       </div>
     </div>
-
     <script>
       // payment method info
       const methods = {
@@ -581,5 +582,13 @@
         // later: redirect to confirmation/success page
       }
     </script>
+    <div id="footer-root"></div>
+
+    <!-- Scripts -->
+    <script src="./../js/components/header.js"></script>
+    <script src="./../js/components/footer.js"></script>
+    <script src="./../js/utils.js"></script>
+    <script src="./../js/main.js"></script>
+    <script src="./../js/pages/tourDetails.js"></script>
   </body>
 </html>
