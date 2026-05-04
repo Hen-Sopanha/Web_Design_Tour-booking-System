@@ -5,6 +5,29 @@ function setText(id, value) {
   if (element && value) element.textContent = value;
 }
 
+function renderPriceBreakdown(rows) {
+  const container = document.getElementById("summary-price-breakdown");
+  if (!container) return;
+
+  container.innerHTML = "";
+  if (!Array.isArray(rows) || rows.length === 0) return;
+
+  rows.forEach((row) => {
+    const priceRow = document.createElement("div");
+    const label = document.createElement("span");
+    const amount = document.createElement("span");
+
+    priceRow.className = "price-row";
+    label.className = "price-label";
+    amount.className = "price-amount";
+    label.textContent = row.label;
+    amount.textContent = row.amount;
+
+    priceRow.append(label, amount);
+    container.appendChild(priceRow);
+  });
+}
+
 if (bookingData) {
   setText("summary-tour-name", bookingData.tourName);
   setText("summary-location", bookingData.location);
@@ -13,6 +36,7 @@ if (bookingData) {
   setText("summary-date", bookingData.travelDates);
   setText("summary-travelers", bookingData.travelers);
   setText("summary-total", bookingData.total);
+  renderPriceBreakdown(bookingData.priceBreakdown);
 
   if (bookingData.addons && bookingData.addons.length > 0) {
     setText("summary-addons", bookingData.addons.join(", "));

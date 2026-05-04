@@ -725,7 +725,9 @@
         const paymentTabs = document.querySelectorAll('#paymentTabs .payment-tab');
         const confirmButton = document.getElementById('confirmPayment');
 
-        const basePrice = 3700;
+        const travelerCount = 2;
+        const pricePerTraveler = 1850;
+        const basePrice = pricePerTraveler * travelerCount;
         const taxFee = 120;
         const roomSurcharges = {
             single: 0,
@@ -741,6 +743,44 @@
         function getSelectedAddons() {
             return Array.from(document.querySelectorAll('input[name="addon"]:checked'))
                 .map(addon => addon.closest('.addon-option').querySelector('.addon-label').textContent.trim());
+        }
+
+        function getAddonTotal() {
+            return Array.from(document.querySelectorAll('input[name="addon"]:checked'))
+                .reduce((sum, addon) => sum + (addonPrices[addon.value] || 0), 0);
+        }
+
+        function formatUsd(amount) {
+            return `USD ${amount.toFixed(2)}`;
+        }
+
+        function getPriceBreakdown() {
+            const selectedRoom = document.querySelector('input[name="room"]:checked').value;
+            const roomSurcharge = roomSurcharges[selectedRoom];
+            const addonTotal = getAddonTotal();
+            const rows = [
+                {
+                    label: `Tour Price ($${pricePerTraveler.toLocaleString()} x ${travelerCount})`,
+                    amount: formatUsd(basePrice),
+                },
+                {
+                    label: 'Room Surcharge',
+                    amount: formatUsd(roomSurcharge),
+                },
+                {
+                    label: 'Taxes & Fees',
+                    amount: formatUsd(taxFee),
+                },
+            ];
+
+            if (addonTotal > 0) {
+                rows.push({
+                    label: 'Add-ons',
+                    amount: formatUsd(addonTotal),
+                });
+            }
+
+            return rows;
         }
 
         function getBookingData() {
@@ -763,7 +803,8 @@
                 tourName: document.querySelector('.summary-title').textContent.trim(),
                 location: 'Cambodia, Kep',
                 travelDates: 'May 15 - 22, 2026',
-                travelers: '2 Travelers',
+                travelers: `${travelerCount} Travelers`,
+                priceBreakdown: getPriceBreakdown(),
                 total: totalPriceEl.textContent.replace('$', 'USD ')
             };
         }
@@ -775,11 +816,7 @@
         function updateTotals() {
             const selectedRoom = document.querySelector('input[name="room"]:checked').value;
             const roomSurcharge = roomSurcharges[selectedRoom];
-            const selectedAddons = document.querySelectorAll('input[name="addon"]:checked');
-            let addonTotal = 0;
-            selectedAddons.forEach(addon => {
-                addonTotal += addonPrices[addon.value] || 0;
-            });
+            const addonTotal = getAddonTotal();
             const total = basePrice + taxFee + roomSurcharge + addonTotal;
             roomSurchargeEl.textContent = `$${roomSurcharge.toFixed(2)}`;
             totalPriceEl.textContent = `$${total.toFixed(2)}`;
