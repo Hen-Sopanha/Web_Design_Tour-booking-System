@@ -3,6 +3,10 @@
  * Renders the CamTravel site footer and injects it into #footer-root.
  */
 
+function assetUrl(relativePath) {
+    return new URL(relativePath, document.baseURI).href;
+}
+
 const footerData = {
     resources: [
         { label: 'Why CamTravel' },
@@ -43,27 +47,27 @@ const footerData = {
     payments: [
         {
             label: 'Mastercard',
-            img: `<img src="./../assets/logo/Mastercard-Logo.png" alt="Mastercard" class="payment-logo-img payment-logo-mastercard">`,
+            img: `<img src="${assetUrl('../assets/logo/Mastercard-Logo.png')}" alt="Mastercard" class="payment-logo-img payment-logo-mastercard">`,
         },
         {
             label: 'Visa',
-            img: `<img src="./../assets/logo/Visa-Logo.jpg" alt="Visa" class="payment-logo-img payment-logo-visa">`,
+            img: `<img src="${assetUrl('../assets/logo/Visa-Logo.jpg')}" alt="Visa" class="payment-logo-img payment-logo-visa">`,
         },
         {
             label: 'Apple Pay',
-            img: `<img src="./../assets/logo/ApplePay-Logo.png" alt="Apple Pay" class="payment-logo-img payment-logo-applepay">`,
+            img: `<img src="${assetUrl('../assets/logo/ApplePay-Logo.png')}" alt="Apple Pay" class="payment-logo-img payment-logo-applepay">`,
         },
         {
             label: 'ABA Pay',
-            img: `<img src="./../assets/logo/Aba-Logo.png" alt="ABA Pay" class="payment-logo-img payment-logo-aba">`,
+            img: `<img src="${assetUrl('../assets/logo/Aba-Logo.png')}" alt="ABA Pay" class="payment-logo-img payment-logo-aba">`,
         },
         {
             label: 'PayPal',
-            img: `<img src="./../assets/logo/Paypal-Logo.png" alt="PayPal" class="payment-logo-img payment-logo-paypal">`,
+            img: `<img src="${assetUrl('../assets/logo/Paypal-Logo.png')}" alt="PayPal" class="payment-logo-img payment-logo-paypal">`,
         },
         {
             label: 'Alipay',
-            img: `<img src="./../assets/logo/Alipay-Logo.png" alt="Alipay" class="payment-logo-img payment-logo-alipay">`,
+            img: `<img src="${assetUrl('../assets/logo/Alipay-Logo.png')}" alt="Alipay" class="payment-logo-img payment-logo-alipay">`,
         }
     ],
 };
@@ -93,8 +97,7 @@ function createFooter() {
       <!-- Top: Logo and Rating -->  
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="./../assets/logo/CamTravel-Logo.png" alt="CamTravel" class="footer-logo-img">
-          <p class="footer-tagline">Explore Cambodia with CamTravel</p>
+          <img src="${assetUrl('../assets/logo/CamTravel-Logo.png')}" alt="CamTravel" class="footer-logo-img">
         </div>
 
         <div class="footer-rating">
