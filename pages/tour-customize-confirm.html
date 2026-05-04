@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,8 +32,15 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .success-icon {
@@ -84,33 +92,32 @@
         }
     </style>
 </head>
-<body>
-    <div id="header-root"></div>
 
+<body>
     <main class="thank-you-container">
         <div class="thank-you-card">
             <div class="success-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 24 24"
+                    stroke-width="2.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                 </svg>
             </div>
             <h1>Request Received!</h1>
-            <p>Thank you for choosing CamTravel. Our travel experts are already crafting your personalized Cambodia adventure. We'll be in touch within 24 hours.</p>
-            
+            <p>Thank you for choosing CamTravel. Our travel experts are already crafting your personalized Cambodia
+                adventure. We'll be in touch within 24 hours.</p>
+
             <div class="thank-you-actions">
                 <a href="index.html" class="btn-primary">Back to Homepage</a>
             </div>
         </div>
     </main>
 
-    <div id="footer-root"></div>
-
     <!-- Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const dest = params.get('destination');
-            
+
             if (dest) {
                 const destNames = {
                     kampot: 'Kampot',
@@ -120,7 +127,7 @@
                     kohkong: 'Koh Kong',
                     kep: 'Kep'
                 };
-                
+
                 const destName = destNames[dest.toLowerCase()] || dest;
                 const message = document.querySelector('.thank-you-card p');
                 message.innerHTML = `Thank you for choosing CamTravel. Our travel experts are already crafting your personalized adventure to <strong>${destName}</strong>. We'll be in touch within 24 hours.`;
@@ -131,4 +138,5 @@
     <script src="../js/components/header.js"></script>
     <script src="../js/components/footer.js"></script>
 </body>
+
 </html>

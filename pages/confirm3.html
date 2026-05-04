@@ -1,490 +1,447 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Booking Confirmed - CamTravel</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./../styles/base.css" />
-    <link rel="stylesheet" href="./../styles/components.css" />
-    <link rel="stylesheet" href="./../styles/layout.css" />
-    <link rel="stylesheet" href="./../styles/pages.css" />
-    <link rel="stylesheet" href="./../styles/responsive.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Confirmed - CamTravel</title>
 
-    <style>
-      :root {
-        --blue-50: #eff6ff;
-        --blue-100: #dbeafe;
-        --blue-400: #60a5fa;
-        --blue-500: #3b82f6;
-        --blue-600: #2563eb;
-        --blue-700: #1d4ed8;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-400: #9ca3af;
-        --gray-500: #6b7280;
-        --gray-700: #374151;
-        --gray-900: #111827;
-        --white: #ffffff;
-        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-        --radius-sm: 8px;
-        --radius-md: 12px;
-        --radius-lg: 16px;
-      }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./../styles/base.css" />
+  <link rel="stylesheet" href="./../styles/components.css" />
+  <link rel="stylesheet" href="./../styles/layout.css" />
+  <link rel="stylesheet" href="./../styles/pages.css" />
+  <link rel="stylesheet" href="./../styles/responsive.css" />
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
+  <style>
+    :root {
+      --blue-50: #eff6ff;
+      --blue-100: #dbeafe;
+      --blue-400: #60a5fa;
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --blue-700: #1d4ed8;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
 
-      body {
-        margin: 0;
-        font-family: "Inter", sans-serif;
-        background: var(--gray-50);
-        color: var(--gray-900);
-        min-height: 100vh;
-      }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-900);
+      min-height: 100vh;
+    }
 
-      button {
-        border: none;
-        font-family: inherit;
-        cursor: pointer;
-      }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-      .page-header {
-        background: linear-gradient(
-          135deg,
+    button {
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .page-header {
+      background: linear-gradient(135deg,
           var(--blue-600) 0%,
           var(--blue-500) 60%,
-          var(--blue-400) 100%
-        );
-        padding: 36px 32px;
-        position: relative;
-        overflow: hidden;
-      }
+          var(--blue-400) 100%);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
 
-      .page-header::before {
-        content: "";
-        position: absolute;
-        top: -40px;
-        right: -40px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.06);
-      }
+    .page-header::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+    }
 
-      .page-header::after {
-        content: "";
-        position: absolute;
-        bottom: -60px;
-        left: 30%;
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.04);
-      }
+    .page-header::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: 30%;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+    }
 
-      .page-header-inner {
-        position: relative;
-        z-index: 1;
-      }
+    .page-header-inner {
+      position: relative;
+      z-index: 1;
+    }
 
-      .breadcrumb {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 14px;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.6);
-      }
+    .page-header h1 {
+      margin: 0;
+      color: var(--white);
+      font-size: 28px;
+      font-weight: 400;
+    }
 
-      .breadcrumb a {
-        color: rgba(255, 255, 255, 0.8);
-        transition: color 0.15s;
-      }
+    .page-header p {
+      margin: 6px 0 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 14px;
+    }
 
-      .breadcrumb a:hover {
-        color: var(--white);
-      }
+    .container {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 40px 24px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-      .page-header h1 {
-        margin: 0;
-        color: var(--white);
-        font-size: 28px;
-        font-weight: 400;
-      }
+    .success-hero {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
 
-      .page-header p {
-        margin: 6px 0 0;
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 14px;
-      }
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: #10b981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 34px;
+    }
 
-      .container {
-        width: min(100%, 760px);
-        margin: 0 auto;
-        padding: 40px 24px 48px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+    .success-icon i {
+      color: inherit;
+      font-size: inherit;
+    }
 
-      .success-hero {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px;
-      }
+    .confirmed-title {
+      margin: 0 0 8px;
+      color: var(--gray-900);
+      font-size: 24px;
+      font-weight: 800;
+    }
 
-      .success-icon {
-        width: 64px;
-        height: 64px;
-        margin-bottom: 18px;
-        border-radius: 50%;
-        background: #10b981;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--white);
-        font-size: 34px;
-      }
+    .confirmed-subtext {
+      margin: 0;
+      color: var(--gray-500);
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-      .success-icon i {
-        color: inherit;
-        font-size: inherit;
-      }
+    .details-card {
+      width: min(100%, 440px) !important;
+      position: static !important;
+      transform: none !important;
+      overflow: hidden;
+      margin-bottom: 30px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      text-align: left;
+    }
 
-      .confirmed-title {
-        margin: 0 0 8px;
-        color: var(--gray-900);
-        font-size: 24px;
-        font-weight: 800;
-      }
+    .details-card:hover {
+      transform: none !important;
+    }
 
-      .confirmed-subtext {
-        margin: 0;
-        color: var(--gray-500);
-        font-size: 14px;
-        line-height: 1.5;
-      }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--gray-100);
+    }
 
-      .details-card {
-        width: min(100%, 440px) !important;
-        position: static !important;
-        transform: none !important;
-        overflow: hidden;
-        margin-bottom: 30px;
-        background: var(--white);
-        border: 1px solid var(--gray-200);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-        text-align: left;
-      }
+    .card-header h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      color: var(--gray-900);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
 
-      .details-card:hover {
-        transform: none !important;
-      }
+    .card-header h2 i,
+    .detail-row i {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: var(--blue-50);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-600);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
 
-      .card-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 14px;
-        padding: 18px 24px;
-        border-bottom: 1px solid var(--gray-100);
-      }
+    .card-header img {
+      width: auto;
+      height: 26px;
+      max-width: 72px;
+      object-fit: contain;
+    }
 
-      .card-header h2 {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin: 0;
-        color: var(--gray-900);
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-      }
+    .card-body {
+      padding: 20px 24px 24px;
+    }
 
-      .card-header h2 i,
-      .detail-row i {
-        width: 34px;
-        height: 34px;
-        border-radius: var(--radius-sm);
-        background: var(--blue-50);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--blue-600);
-        font-size: 15px;
-        flex-shrink: 0;
-      }
+    .ref-number {
+      margin: 0 0 15px;
+      color: var(--gray-500);
+      font-size: 14px;
+    }
 
-      .card-header img {
-        width: auto;
-        height: 26px;
-        max-width: 72px;
-        object-fit: contain;
-      }
+    .detail-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 0;
+      border-top: 1px solid var(--gray-100);
+    }
 
-      .card-body {
-        padding: 20px 24px 24px;
-      }
+    .detail-row:first-of-type {
+      border-top: none;
+    }
 
-      .ref-number {
-        margin: 0 0 15px;
-        color: var(--gray-500);
-        font-size: 14px;
-      }
+    .detail-label {
+      width: 70px;
+      color: var(--gray-500);
+      font-size: 13px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
 
-      .detail-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 13px 0;
-        border-top: 1px solid var(--gray-100);
-      }
+    .detail-value {
+      flex: 1;
+      color: var(--gray-900);
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-      .detail-row:first-of-type {
-        border-top: none;
-      }
+    .detail-value p {
+      margin: 0;
+    }
 
-      .detail-label {
-        width: 70px;
-        color: var(--gray-500);
-        font-size: 13px;
-        font-weight: 500;
-        flex-shrink: 0;
-      }
+    .detail-value small {
+      color: var(--gray-500);
+      font-weight: 400;
+    }
 
-      .detail-value {
-        flex: 1;
-        color: var(--gray-900);
-        font-size: 14px;
-        font-weight: 600;
-      }
+    .total-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px -24px -24px;
+      padding: 18px 24px;
+      background: var(--blue-50);
+    }
 
-      .detail-value p {
-        margin: 0;
-      }
+    .total-line span:first-child {
+      color: var(--gray-900);
+      font-size: 15px;
+      font-weight: 700;
+    }
 
-      .detail-value small {
-        color: var(--gray-500);
-        font-weight: 400;
-      }
+    .total-line span:last-child {
+      color: var(--blue-600);
+      font-size: 24px;
+      font-weight: 700;
+    }
 
-      .total-line {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 10px -24px -24px;
-        padding: 18px 24px;
-        background: var(--blue-50);
-      }
+    .action-grid {
+      width: min(100%, 580px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 40px;
+    }
 
-      .total-line span:first-child {
-        color: var(--gray-900);
-        font-size: 15px;
-        font-weight: 700;
-      }
+    .btn-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 15px;
+      text-align: center;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      color: var(--gray-900);
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
 
-      .total-line span:last-child {
-        color: var(--blue-600);
-        font-size: 24px;
-        font-weight: 700;
-      }
+    .btn-action:hover {
+      background: var(--blue-50);
+      border-color: var(--blue-400);
+    }
 
+    .btn-action i {
+      color: var(--blue-600);
+      font-size: 18px;
+    }
+
+    @media (max-width: 720px) {
       .action-grid {
-        width: min(100%, 580px);
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-bottom: 40px;
+        grid-template-columns: 1fr;
       }
+    }
+  </style>
+</head>
 
-      .btn-action {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        min-height: 50px;
-        padding: 15px;
-        text-align: center;
-        background: var(--white);
-        border: 1px solid var(--gray-200);
-        border-radius: var(--radius-md);
-        color: var(--gray-900);
-        font-size: 13px;
-        font-weight: 700;
-        transition: 0.2s;
-      }
+<body>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>Booking Confirmed</h1>
+      <p>Your payment was successful and your trip is ready.</p>
+    </div>
+  </div>
 
-      .btn-action:hover {
-        background: var(--blue-50);
-        border-color: var(--blue-400);
-      }
-
-      .btn-action i {
-        color: var(--blue-600);
-        font-size: 18px;
-      }
-
-      @media (max-width: 720px) {
-        .action-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="header-root"></div>
-
-    <div class="page-header">
-      <div class="page-header-inner">
-        <div class="breadcrumb">
-          <a href="/pages/index.html">Home</a><span class="separator">></span>
-          <a href="/pages/tour-listing.html">Tour-Listing</a
-          ><span class="separator">></span>
-          <a href="/pages/tour-details.html">Tour-Details</a
-          ><span class="separator">></span>
-          <a href="/pages/booking.html">Tour-Booking</a
-          ><span class="separator">></span>
-          <a href="/pages/confirm.html">Payment Methods</a
-          ><span class="separator">></span>
-          <a href="/pages/confirm2.html">Payment Details</a
-          ><span class="separator">></span>
-          <a href="/pages/confirm3.html">Booking Confirmed</a>
-        </div>
-        <h1>Booking Confirmed</h1>
-        <p>Your payment was successful and your trip is ready.</p>
+  <div class="container">
+    <div class="success-hero">
+      <div class="success-icon">
+        <i class="fa-solid fa-check"></i>
       </div>
+      <h1 class="confirmed-title">BOOKING CONFIRMED!</h1>
+      <p class="confirmed-subtext">
+        Thank you for booking with CamTravel!<br />
+        A confirmation email has been sent to
+        <strong id="user-email">john221@gmail.com</strong>
+      </p>
     </div>
 
-    <div class="container">
-      <div class="success-hero">
-        <div class="success-icon">
-          <i class="fa-solid fa-check"></i>
-        </div>
-        <h1 class="confirmed-title">BOOKING CONFIRMED!</h1>
-        <p class="confirmed-subtext">
-          Thank you for booking with CamTravel!<br />
-          A confirmation email has been sent to
-          <strong id="user-email">john221@gmail.com</strong>
+    <div class="details-card">
+      <div class="card-header">
+        <h2><i class="fa-solid fa-receipt"></i> Booking Details</h2>
+        <img src="../assets/logo/CamTravel-Logo.png" alt="CamTravel logo" />
+      </div>
+      <div class="card-body">
+        <p class="ref-number">
+          Booking reference: <strong>TE-245891</strong>
         </p>
-      </div>
 
-      <div class="details-card">
-        <div class="card-header">
-          <h2><i class="fa-solid fa-receipt"></i> Booking Details</h2>
-          <img src="../assets/logo/CamTravel-Logo.png" alt="CamTravel logo" />
-        </div>
-        <div class="card-body">
-          <p class="ref-number">
-            Booking reference: <strong>TE-245891</strong>
-          </p>
-
-          <div class="detail-row">
-            <i class="fa-solid fa-location-dot"></i>
-            <span class="detail-label">Tour</span>
-            <div class="detail-value">
-              <p id="tour-name">Kampot Adventure</p>
-              <small>Cambodia, Kampot</small>
-            </div>
-          </div>
-
-          <div class="detail-row">
-            <i class="fa-solid fa-user"></i>
-            <span class="detail-label">Traveler</span>
-            <span class="detail-value" id="traveler-name">-</span>
-          </div>
-
-          <div class="detail-row">
-            <i class="fa-solid fa-calendar-days"></i>
-            <span class="detail-label">Date</span>
-            <span class="detail-value" id="final-date">May 15 - 22, 2026</span>
-          </div>
-
-          <div class="detail-row">
-            <i class="fa-solid fa-user-group"></i>
-            <span class="detail-label">Guests</span>
-            <span class="detail-value" id="travelers-count"
-              >1 Adults, 1 Child</span
-            >
-          </div>
-
-          <div class="total-line">
-            <span>Total Paid</span>
-            <span id="final-total">USD 75</span>
+        <div class="detail-row">
+          <i class="fa-solid fa-location-dot"></i>
+          <span class="detail-label">Tour</span>
+          <div class="detail-value">
+            <p id="tour-name">Kampot Adventure</p>
+            <small>Cambodia, Kampot</small>
           </div>
         </div>
-      </div>
 
-      <div class="action-grid">
-        <button class="btn-action">
-          <i class="fa-solid fa-download"></i> Download Itinerary
-        </button>
-        <a href="index.html" class="btn-action">
-          <i class="fa-solid fa-house"></i> Back to Home
-        </a>
-        <a href="tour-listing.html" class="btn-action">
-          <i class="fa-solid fa-magnifying-glass"></i> Explore More Tours
-        </a>
+        <div class="detail-row">
+          <i class="fa-solid fa-user"></i>
+          <span class="detail-label">Traveler</span>
+          <span class="detail-value" id="traveler-name">-</span>
+        </div>
+
+        <div class="detail-row">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span class="detail-label">Date</span>
+          <span class="detail-value" id="final-date">May 15 - 22, 2026</span>
+        </div>
+
+        <div class="detail-row">
+          <i class="fa-solid fa-user-group"></i>
+          <span class="detail-label">Guests</span>
+          <span class="detail-value" id="travelers-count">1 Adults, 1 Child</span>
+        </div>
+
+        <div class="total-line">
+          <span>Total Paid</span>
+          <span id="final-total">USD 75</span>
+        </div>
       </div>
     </div>
 
-    <script>
-      window.onload = function () {
-        const bookingData = JSON.parse(localStorage.getItem("bookingData"));
+    <div class="action-grid">
+      <button class="btn-action">
+        <i class="fa-solid fa-download"></i> Download Itinerary
+      </button>
+      <a href="index.html" class="btn-action">
+        <i class="fa-solid fa-house"></i> Back to Home
+      </a>
+      <a href="tour-listing.html" class="btn-action">
+        <i class="fa-solid fa-magnifying-glass"></i> Explore More Tours
+      </a>
+    </div>
+  </div>
 
-        if (bookingData) {
-          if (bookingData.email)
-            document.getElementById("user-email").textContent =
-              bookingData.email;
-          if (bookingData.name)
-            document.getElementById("traveler-name").textContent =
-              bookingData.name;
-          if (bookingData.tourName)
-            document.getElementById("tour-name").textContent =
-              bookingData.tourName;
-          if (bookingData.travelDates)
-            document.getElementById("final-date").textContent =
-              bookingData.travelDates;
-          if (bookingData.travelers)
-            document.getElementById("travelers-count").textContent =
-              bookingData.travelers;
-          if (bookingData.total)
-            document.getElementById("final-total").textContent =
-              bookingData.total;
-        }
-      };
-    </script>
+  <script>
+    window.onload = function () {
+      const bookingData = JSON.parse(localStorage.getItem("bookingData"));
 
-    <div id="footer-root"></div>
+      if (bookingData) {
+        if (bookingData.email)
+          document.getElementById("user-email").textContent =
+            bookingData.email;
+        if (bookingData.name)
+          document.getElementById("traveler-name").textContent =
+            bookingData.name;
+        if (bookingData.tourName)
+          document.getElementById("tour-name").textContent =
+            bookingData.tourName;
+        if (bookingData.travelDates)
+          document.getElementById("final-date").textContent =
+            bookingData.travelDates;
+        if (bookingData.travelers)
+          document.getElementById("travelers-count").textContent =
+            bookingData.travelers;
+        if (bookingData.total)
+          document.getElementById("final-total").textContent =
+            bookingData.total;
+      }
+    };
+  </script>
 
-    <script src="./../js/components/header.js"></script>
-    <script src="./../js/components/footer.js"></script>
-    <script src="./../js/utils.js"></script>
-    <script src="./../js/main.js"></script>
-    <script src="./../js/pages/tourDetails.js"></script>
-  </body>
+  <script src="./../js/components/header.js"></script>
+  <script src="./../js/components/footer.js"></script>
+  <script src="./../js/utils.js"></script>
+  <script src="./../js/main.js"></script>
+  <script src="./../js/pages/tourDetails.js"></script>
+</body>
+
 </html>
