@@ -6,6 +6,7 @@
     border-radius: 20px;
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
 }
 
 /* container */
@@ -50,12 +51,22 @@
     border-radius: 5px;
 }
 
-/* Attractive section */
-.attractive-section {
-    background: linear-gradient(135deg, #ff7e5e, #feb47b);
-    color: white;
-    padding: 2rem;
+/* Attractive section & Hidden Gems*/
+.Attrativetrips-section {
+    color: black;
+    padding: 1.5rem;
     border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.gems-section {
+    color: black;
+    padding: 1.5rem;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -106,6 +117,286 @@
 .h-card-content p {
     font-size: 0.8rem;
     color: gray;
+}
+
+
+/*Tour Customize style*/
+* {
+    box-sizing: border-box;
+}
+
+.tour-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.simple-header {
+    background: #f8fafc;
+    padding: 1.2rem 2rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.simple-header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #0f3b5c;
+}
+
+.simple-header p {
+    font-size: 0.85rem;
+    color: #4a627a;
+    margin-top: 0.3rem;
+}
+
+.customizer-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.form-section h2,
+.preview-section h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    border-left: 4px solid #1A6FDB;
+    padding-left: 0.75rem;
+    color: #1f4a6b;
+}
+
+.field {
+    margin-bottom: 1.2rem;
+}
+
+.field label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    color: #2c4e6e;
+}
+
+select,
+input,
+textarea {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.9rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: white;
+    transition: 0.15s;
+}
+
+select:focus,
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #1A6FDB;
+    box-shadow: 0 0 0 2px rgba(26, 111, 219, 0.2);
+}
+
+.range-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.range-wrapper input {
+    flex: 2;
+}
+
+.range-value {
+    background: #eef2f6;
+    padding: 0.3rem 0.9rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+small {
+    font-size: 0.7rem;
+    color: #64748b;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.preview-card {
+    background: #f9fbfd;
+    border-radius: 1.2rem;
+    padding: 1.2rem;
+    border: 1px solid #e9edf2;
+}
+
+.preview-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 0.9rem;
+}
+
+.preview-row:last-child {
+    border-bottom: none;
+}
+
+.preview-label {
+    font-weight: 500;
+    color: #475569;
+}
+
+.preview-value {
+    font-weight: 500;
+    color: #0f3b5c;
+    text-align: right;
+}
+
+.total-box {
+    margin-top: 1.2rem;
+    background: #e6f0ef;
+    border-radius: 1rem;
+    padding: 0.9rem;
+    text-align: center;
+}
+
+.total-amount {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1A6FDB;
+    letter-spacing: -0.3px;
+}
+
+.total-label {
+    font-size: 0.75rem;
+    color: #2c5a6e;
+    margin-bottom: 0.2rem;
+}
+
+.footnote {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-top: 0.8rem;
+    color: #5f7f9c;
+}
+
+.simple-footer {
+    border-top: 1px solid #e9edf2;
+    padding: 1rem 2rem;
+    font-size: 0.7rem;
+    color: #6c86a0;
+    background: #fefefe;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Submit Button */
+.btn-submit {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #1A6FDB;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(26, 111, 219, 0.2);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 111, 219, 0.3);
+    background: linear-gradient(135deg, #257ceb, #154c75);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-submit.disabled,
+.btn-submit:disabled {
+    background: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-submit.disabled:hover,
+.btn-submit:disabled:hover {
+    background: #cbd5e1;
+    transform: none;
+    box-shadow: none;
+}
+
+.inline-code {
+    background: #f1f5f9;
+    padding: 0.2rem 0.4rem;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.7rem;
+}
+
+/* Vibe Chips */
+.vibe-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.vibe-chip {
+    padding: 0.6rem 1.2rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 2rem;
+    background: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.vibe-chip:hover {
+    border-color: #1A6FDB;
+    color: #1A6FDB;
+    background: #f0fdfa;
+    transform: translateY(-2px);
+}
+
+.vibe-chip.selected {
+    background: #1A6FDB;
+    color: white;
+    border-color: #1A6FDB;
+    box-shadow: 0 4px 12px rgba(44, 122, 110, 0.2);
+}
+
+.vibe-chip.selected:hover {
+    background: #1A6FDB;
+    border-color: #1A6FDB;
 }
 
 /* Tour Details Page Styles */
@@ -883,9 +1174,6 @@ ul.timeline-desc {
 
 .feature-item svg {
     flex-shrink: 0;
-<<<<<<< HEAD
-}
-=======
 }
 
 /* Image Lightbox Modal */
@@ -982,324 +1270,3 @@ ul.timeline-desc {
     position: absolute;
     right: 20px;
 }
-/* home page styles */
-/* Destinations sidebar */
-.destinations-bar {
-    background: white;
-    border-radius: 20px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    text-align: center;
-
-}
-
-body {
-    font-family: Arial, sans-serif;
-}
-
-/* container */
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-/* card */
-.card {
-    position: relative;
-    width: calc(33.33% - 20px);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* hover */
-.card:hover {
-    transform: translateY(-8px);
-}
-
-/* image */
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
-
-/* text */
-.card p {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: white;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-/* Attractive section & Hidden Gems*/
-.Attrativetrips-section {
-    color: black;
-    padding: 1.5rem;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.gems-section {
-    color: black;
-    padding: 1.5rem;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-/* scroll container */
-.horizontal-scroll-wrapper {
-    overflow-x: auto;
-    display: flex;
-    gap: 1.5rem;
-    padding: 1rem;
-}
-
-/* card */
-.h-card {
-    flex: 0 0 280px;
-    background: white;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-}
-
-/* hover */
-.h-card:hover {
-    transform: translateY(-8px);
-}
-
-/* image */
-.h-card-img {
-    height: 160px;
-}
-
-.h-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* content */
-.h-card-content {
-    padding: 1rem;
-}
-
-.h-card-content h4 {
-    margin: 0;
-}
-
-.h-card-content p {
-    font-size: 0.8rem;
-    color: gray;
-}
-
-
-/*Tour Customize style*/
-* {
-    box-sizing: border-box;
-}
-.tour-card {
-  max-width: 1100px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-}
-
-.simple-header {
-  background: #f8fafc;
-  padding: 1.2rem 2rem;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.simple-header h1 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #0f3b5c;
-}
-
-.simple-header p {
-  font-size: 0.85rem;
-  color: #4a627a;
-  margin-top: 0.3rem;
-}
-
-.customizer-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.form-section h2, .preview-section h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  border-left: 4px solid #2c7a6e;
-  padding-left: 0.75rem;
-  color: #1f4a6b;
-}
-
-.field {
-  margin-bottom: 1.2rem;
-}
-
-.field label {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-weight: 600;
-  font-size: 0.85rem;
-  margin-bottom: 0.4rem;
-  color: #2c4e6e;
-}
-
-select, input, textarea {
-  width: 100%;
-  padding: 0.65rem 0.9rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 0.9rem;
-  font-size: 0.9rem;
-  font-family: inherit;
-  background: white;
-  transition: 0.15s;
-}
-
-select:focus, input:focus, textarea:focus {
-  outline: none;
-  border-color: #2c7a6e;
-  box-shadow: 0 0 0 2px rgba(44,122,110,0.15);
-}
-
-.range-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.range-wrapper input {
-  flex: 2;
-}
-
-.range-value {
-  background: #eef2f6;
-  padding: 0.3rem 0.9rem;
-  border-radius: 2rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 70px;
-}
-
-small {
-  font-size: 0.7rem;
-  color: #64748b;
-  display: block;
-  margin-top: 0.3rem;
-}
-
-.preview-card {
-  background: #f9fbfd;
-  border-radius: 1.2rem;
-  padding: 1.2rem;
-  border: 1px solid #e9edf2;
-}
-
-.preview-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.7rem 0;
-  border-bottom: 1px dashed #e2e8f0;
-  font-size: 0.9rem;
-}
-
-.preview-row:last-child {
-  border-bottom: none;
-}
-
-.preview-label {
-  font-weight: 500;
-  color: #475569;
-}
-
-.preview-value {
-  font-weight: 500;
-  color: #0f3b5c;
-  text-align: right;
-}
-
-.total-box {
-  margin-top: 1.2rem;
-  background: #e6f0ef;
-  border-radius: 1rem;
-  padding: 0.9rem;
-  text-align: center;
-}
-
-.total-amount {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #1f6e5c;
-  letter-spacing: -0.3px;
-}
-
-.total-label {
-  font-size: 0.75rem;
-  color: #2c5a6e;
-  margin-bottom: 0.2rem;
-}
-
-.footnote {
-  font-size: 0.7rem;
-  text-align: center;
-  margin-top: 0.8rem;
-  color: #5f7f9c;
-}
-
-.live-badge {
-  font-size: 0.7rem;
-  background: #eef2ff;
-  display: inline-block;
-  padding: 0.2rem 0.7rem;
-  border-radius: 30px;
-  margin-top: 0.6rem;
-}
-
-.simple-footer {
-  border-top: 1px solid #e9edf2;
-  padding: 1rem 2rem;
-  font-size: 0.7rem;
-  color: #6c86a0;
-  background: #fefefe;
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.inline-code {
-  background: #f1f5f9;
-  padding: 0.2rem 0.4rem;
-  border-radius: 8px;
-  font-family: monospace;
-  font-size: 0.7rem;
-}
->>>>>>> Mengseang

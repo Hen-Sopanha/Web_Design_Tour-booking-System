@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Booking | Mediterranean Prestige</title>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <title>CamTravel - Tour Booking</title>
+    <link rel="icon" type="image/png" href="./../assets/logo/CamTravel-Logo.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/components.css">
-    <!-- <link rel="stylesheet" href="../styles/pages.css"> -->
-    <!-- <link rel="stylesheet" href="../styles/responsive.css"> -->
-    <!-- <link rel="stylesheet" href="../styles/base.css"> -->
-    <!-- <link rel="stylesheet" href="../styles/layout.css"> -->
+    <link rel="stylesheet" href="../styles/base.css">
 
     <style>
         :root {
             --bg: #f8f9fa;
-            --surface: #ffffff;
+            --surface: #ebeef4;
             --surface-2: #f3f4f5;
             --surface-border: #e1e3e4;
             --text: #191c1d;
             --text-muted: #6f7280;
             --text-strong: #0a2342;
             --primary: #000d22;
-            --secondary: #735c00;
-            --secondary-light: #fed65b;
+            --secondary: #203bd3;
+            --secondary-light: #eae6d9;
             --accent: #0a2342;
             --success: #0f5132;
             --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
@@ -36,12 +39,29 @@
             box-sizing: border-box;
         }
 
-        body {
-            margin: 0;
-            font-family: 'Manrope', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breadcrumb a {
+            color: #374151;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #1A6FDB;
+        }
+
+        .breadcrumb .separator {
+            color: #9CA3AF;
+            font-size: 0.75rem;
         }
 
         .material-symbols-outlined {
@@ -315,11 +335,13 @@
         .payment-tab.active {
             border-color: var(--secondary);
         }
+
         .payment-tab:hover {
             border-color: var(--secondary);
-            background-color: #1A6FDB ;
+            background-color: #1A6FDB;
             color: #ffffff;
         }
+
         .payment-tab span {
             font-weight: 700;
             color: var(--primary);
@@ -508,6 +530,7 @@
         }
 
         @media (max-width: 720px) {
+
             .top-bar,
             .footer-inner {
                 flex-direction: column;
@@ -531,16 +554,24 @@
         } */
     </style>
 </head>
+
 <body>
     <!-- header -->
     <div id="header-root"></div>
-    
+
     <main class="container">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> <span class="separator">></span>
+            <a href="tour-listing.html">Tour Listing</a> <span class="separator">></span>
+            <a href="tour-details.html">Tour Details</a> <span class="separator">></span>
+            <a href="booking.html">Tour Booking</a>
+        </div>
         <div class="grid grid-2" style="margin-top: 20px; margin-bottom: 20px;">
             <div>
                 <div class="card card-inner">
                     <section>
-                        <h2 class="section-title"><span class="material-symbols-outlined">person</span>Traveler Details</h2>
+                        <h2 class="section-title"><span class="material-symbols-outlined">person</span>Traveler Details
+                        </h2>
                         <div class="form-grid">
                             <div class="field">
                                 <label for="firstName">First Name</label>
@@ -595,7 +626,8 @@
                 </div>
                 <div class="card card-inner" style="margin-top: 32px;">
                     <section>
-                        <h2 class="section-title"><span class="material-symbols-outlined">add_circle</span>Optional Add-ons</h2>
+                        <h2 class="section-title"><span class="material-symbols-outlined">add_circle</span>Optional
+                            Add-ons</h2>
                         <div class="addon-list">
                             <label class="addon-option active">
                                 <div class="addon-row">
@@ -621,7 +653,8 @@
                                 <div class="addon-row">
                                     <div>
                                         <div class="addon-label">Extra Night in Catania</div>
-                                        <div class="addon-description">Extend your stay with 1 night at the Grand Hotel Baia Verde</div>
+                                        <div class="addon-description">Extend your stay with 1 night at the Grand Hotel
+                                            Baia Verde</div>
                                     </div>
                                     <span class="addon-price">+$220</span>
                                 </div>
@@ -630,61 +663,30 @@
                         </div>
                     </section>
                 </div>
-                <div class="card card-inner" style="margin-top: 32px;">
-                    <section>
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px;">
-                            <h2 class="section-title" style="margin:0;"><span class="material-symbols-outlined">shield</span>Secure Payment</h2>
-                            <div class="top-badge"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">lock</span>Secure Checkout</div>
-                        </div>
-                        <div class="panel">
-                            <div class="payment-tabs" id="paymentTabs">
-                                <button class="payment-tab " type="button" data-payment="card" ><span class="material-symbols-outlined">credit_card</span>Credit/Debit Card</button>
-                                <button class="payment-tab" type="button" data-payment="paypal" ><span class="material-symbols-outlined" >payments</span>PayPal</button>
-                            </div>
-                            <div class="payment-grid">
-                                <div class="field" style="grid-column: span 2;">
-                                    <label for="cardNumber">Card Number</label>
-                                    <div style="position:relative;">
-                                        <input id="cardNumber" type="text" placeholder="0000 0000 0000 0000">
-                                        <span class="material-symbols-outlined" style="position:absolute; right:16px; top:50%; transform:translateY(-50%); color:#7f8291;">credit_card</span>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label for="expiryDate">Expiry Date</label>
-                                    <input id="expiryDate" type="text" placeholder="MM / YY">
-                                </div>
-                                <div class="field">
-                                    <label for="cvv">CVV</label>
-                                    <input id="cvv" type="text" placeholder="123">
-                                </div>
-                                <div class="field" style="grid-column: span 2;">
-                                    <label for="cardName">Name on Card</label>
-                                    <input id="cardName" type="text" placeholder="As it appears on your card">
-                                </div>
-                            </div>
-                            <div class="info-text">
-                                <span class="material-symbols-outlined">info</span>
-                                Your transaction is protected by industry-leading 256-bit SSL encryption.
-                            </div>
-                        </div>
-                    </section>
-                </div>
             </div>
+
             <div style="position:sticky; top:3px; align-self:start; display:flex; flex-direction:column; gap:30px;">
                 <div class="summary-card card">
-                    <img class="summary-image" src=" D:\c++\Web 1\Web_Design_Tour-booking-System\assets\images\Kep.jpg " alt="Kep">
+                    <img class="summary-image" src="./../assets/images/Bokor-Mountain.png" alt="Kampot">
                     <div class="summary-body">
-                        <h3 class="summary-title">Kep</h3>
-                        <div class="summary-detail"><span class="material-symbols-outlined">calendar_today</span><span>May 15 - May 22, 2026</span></div>
-                        <div class="summary-detail"><span class="material-symbols-outlined">schedule</span><span>8 Days / 7 Nights</span></div>
-                        <div class="summary-detail"><span class="material-symbols-outlined">group</span><span>2 Travelers</span></div>
+                        <h3 class="summary-title">Kampot</h3>
+                        <div class="summary-detail"><span
+                                class="material-symbols-outlined">calendar_today</span><span>May 15 - May 22,
+                                2026</span></div>
+                        <div class="summary-detail"><span class="material-symbols-outlined">schedule</span><span>8 Days
+                                / 7 Nights</span></div>
+                        <div class="summary-detail"><span class="material-symbols-outlined">group</span><span>2
+                                Travelers</span></div>
                         <div style="border-top:1px solid #e7e8e9; padding-top:20px; margin-top:20px;">
                             <div class="price-row"><span>Tour Price ($1,850 x 2)</span><span>$3,700.00</span></div>
-                            <div class="price-row"><span>Room Surcharge</span><span id="roomSurcharge">$0.00</span></div>
+                            <div class="price-row"><span>Room Surcharge</span><span id="roomSurcharge">$0.00</span>
+                            </div>
                             <div class="price-row"><span>Taxes & Fees</span><span>$120.00</span></div>
-                            <div class="price-total"><span>Total Price</span><span id="totalPrice">$3,820.00</span></div>
+                            <div class="price-total"><span>Total Price</span><span id="totalPrice">$3,820.00</span>
+                            </div>
                         </div>
-                        <button id="confirmPayment" style="background-color:  #1A6FDB; color:  #ffffff;;">Confirm & Pay</button>
+                        <button id="confirmPayment" style="background-color:  #1A6FDB; color:  #ffffff;;">Confirm &
+                            Pay</button>
                         <p class="summary-small">By clicking "Confirm & Pay", you agree to our Terms of Service</p>
                     </div>
                 </div>
@@ -704,17 +706,21 @@
                         </div>
                     </div>
                     <div class="trust-item">
-                        <div class="trust-icon"><span class="material-symbols-outlined">lock_reset</span></div>
+                        <div class="trust-icon" style="cursor: pointer;">
+                            <a href="tour-details.html" style="text-decoration: none; color: inherit;">
+                                <span class="material-symbols-outlined">arrow_back</span>
+                            </a>
+                        </div>
                         <div>
-                            <h4>PCI-Compliant Payment</h4>
-                            <p>Your payment details are never stored on our servers.</p>
+                            <h4>Return to Tours</h4>
+                            <p>Click the arrow to go back to the listing page.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-   <!-- footer -->
+    <!-- footer -->
     <div id="footer-root"></div>
 
     <script>
@@ -725,7 +731,9 @@
         const paymentTabs = document.querySelectorAll('#paymentTabs .payment-tab');
         const confirmButton = document.getElementById('confirmPayment');
 
-        const basePrice = 3700;
+        const travelerCount = 2;
+        const pricePerTraveler = 1850;
+        const basePrice = pricePerTraveler * travelerCount;
         const taxFee = 120;
         const roomSurcharges = {
             single: 0,
@@ -738,17 +746,87 @@
             'extra-night': 220
         };
 
+        function getSelectedAddons() {
+            return Array.from(document.querySelectorAll('input[name="addon"]:checked'))
+                .map(addon => addon.closest('.addon-option').querySelector('.addon-label').textContent.trim());
+        }
+
+        function getAddonTotal() {
+            return Array.from(document.querySelectorAll('input[name="addon"]:checked'))
+                .reduce((sum, addon) => sum + (addonPrices[addon.value] || 0), 0);
+        }
+
+        function formatUsd(amount) {
+            return `USD ${amount.toFixed(2)}`;
+        }
+
+        function getPriceBreakdown() {
+            const selectedRoom = document.querySelector('input[name="room"]:checked').value;
+            const roomSurcharge = roomSurcharges[selectedRoom];
+            const addonTotal = getAddonTotal();
+            const rows = [
+                {
+                    label: `Tour Price ($${pricePerTraveler.toLocaleString()} x ${travelerCount})`,
+                    amount: formatUsd(basePrice),
+                },
+                {
+                    label: 'Room Surcharge',
+                    amount: formatUsd(roomSurcharge),
+                },
+                {
+                    label: 'Taxes & Fees',
+                    amount: formatUsd(taxFee),
+                },
+            ];
+
+            if (addonTotal > 0) {
+                rows.push({
+                    label: 'Add-ons',
+                    amount: formatUsd(addonTotal),
+                });
+            }
+
+            return rows;
+        }
+
+        function getBookingData() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const selectedRoom = document.querySelector('input[name="room"]:checked');
+            const selectedRoomLabel = selectedRoom
+                .closest('.radio-option')
+                .querySelector('.radio-label')
+                .textContent
+                .trim();
+
+            return {
+                name: `${firstName} ${lastName}`.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                nationality: document.getElementById('nationality').value,
+                room: selectedRoomLabel,
+                addons: getSelectedAddons(),
+                tourName: document.querySelector('.summary-title').textContent.trim(),
+                location: 'Cambodia, Kep',
+                travelDates: 'May 15 - 22, 2026',
+                travelers: `${travelerCount} Travelers`,
+                priceBreakdown: getPriceBreakdown(),
+                total: totalPriceEl.textContent.replace('$', 'USD ')
+            };
+        }
+
+        function saveBookingData() {
+            localStorage.setItem('bookingData', JSON.stringify(getBookingData()));
+        }
+
         function updateTotals() {
             const selectedRoom = document.querySelector('input[name="room"]:checked').value;
             const roomSurcharge = roomSurcharges[selectedRoom];
-            const selectedAddons = document.querySelectorAll('input[name="addon"]:checked');
-            let addonTotal = 0;
-            selectedAddons.forEach(addon => {
-                addonTotal += addonPrices[addon.value] || 0;
-            });
+            const addonTotal = getAddonTotal();
             const total = basePrice + taxFee + roomSurcharge + addonTotal;
             roomSurchargeEl.textContent = `$${roomSurcharge.toFixed(2)}`;
             totalPriceEl.textContent = `$${total.toFixed(2)}`;
+            saveBookingData();
         }
 
         roomOptions.forEach(option => {
@@ -784,13 +862,36 @@
 
 
         confirmButton.addEventListener('click', () => {
-            alert('Payment confirmed! Thank you for booking with Mediterranean Prestige.');
+            const requiredFields = [
+                document.getElementById('firstName'),
+                document.getElementById('lastName'),
+                document.getElementById('email'),
+                document.getElementById('phone'),
+                document.getElementById('nationality')
+            ];
+            const emptyField = requiredFields.find(field => !field.value.trim());
+
+            if (emptyField) {
+                alert('Please fill in your traveler information first.');
+                emptyField.focus();
+                return;
+            }
+
+            saveBookingData();
+            window.location.href = 'confirm.html';
+        });
+
+        document.querySelectorAll('#firstName, #lastName, #email, #phone, #nationality').forEach(field => {
+            field.addEventListener('input', saveBookingData);
+            field.addEventListener('change', saveBookingData);
         });
 
         updateTotals();
     </script>
 
-    <script src="../js/components/footer.js"></script>
+
     <script src="../js/components/header.js"></script>
+    <script src="../js/components/footer.js"></script>
 </body>
+
 </html>

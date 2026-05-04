@@ -1,806 +1,613 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Complete Your Payment – CamTravel</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./../styles/base.css" />
-    <link rel="stylesheet" href="./../styles/components.css" />
-    <link rel="stylesheet" href="./../styles/layout.css" />
-    <link rel="stylesheet" href="./../styles/pages.css" />
-    <link rel="stylesheet" href="./../styles/responsive.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CamTravel - Tour Payment</title>
+  <link rel="icon" type="image/png" href="./../assets/logo/CamTravel-Logo.png">
 
-    <style>
-      :root {
-        --blue-50: #eff6ff;
-        --blue-100: #dbeafe;
-        --blue-200: #bfdbfe;
-        --blue-400: #60a5fa;
-        --blue-500: #3b82f6;
-        --blue-600: #2563eb;
-        --blue-700: #1d4ed8;
-        --gray-50: #f9fafb;
-        --gray-100: #f3f4f6;
-        --gray-200: #e5e7eb;
-        --gray-400: #9ca3af;
-        --gray-500: #6b7280;
-        --gray-700: #374151;
-        --gray-900: #111827;
-        --white: #ffffff;
-        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-        --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
-        --radius-sm: 8px;
-        --radius-md: 12px;
-        --radius-lg: 16px;
-      }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./../styles/base.css" />
+  <link rel="stylesheet" href="./../styles/components.css" />
+  <link rel="stylesheet" href="./../styles/layout.css" />
+  <link rel="stylesheet" href="./../styles/pages.css" />
+  <link rel="stylesheet" href="./../styles/responsive.css" />
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+  <style>
+    :root {
+      --blue-50: #eff6ff;
+      --blue-100: #dbeafe;
+      --blue-200: #bfdbfe;
+      --blue-400: #60a5fa;
+      --blue-500: #3b82f6;
+      --blue-600: #2563eb;
+      --blue-700: #1d4ed8;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --white: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
 
-      body {
-        font-family: "DM Sans", sans-serif;
-        background: var(--gray-50);
-        color: var(--gray-900);
-        min-height: 100vh;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      button {
-        font-family: inherit;
-        cursor: pointer;
-        border: none;
-        background: none;
-      }
-      img {
-        display: block;
-      }
-
-
-
-      .currency-selector {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 16px;
-        border: 1.5px solid var(--gray-200);
-        border-radius: 999px;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--gray-700);
-        background: var(--white);
-        cursor: pointer;
-        user-select: none;
-        transition: border-color 0.2s;
-      }
-
-      .currency-selector:hover {
-        border-color: var(--blue-400);
-      }
-
-      .currency-selector i {
-        font-size: 10px;
-        color: var(--gray-400);
-        transition: transform 0.2s ease;
-      }
-
-      .currency-selector.is-open i {
-        transform: rotate(180deg);
-      }
-
-      .currency-dropdown {
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 50%;
-        transform: translateX(-50%) translateY(-6px);
-        min-width: 160px;
-        background: var(--white);
-        border: 1px solid var(--gray-200);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-lg);
-        overflow: hidden;
-        z-index: 200;
-        opacity: 0;
-        pointer-events: none;
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-      }
-
-      .currency-selector.is-open .currency-dropdown {
-        opacity: 1;
-        pointer-events: all;
-        transform: translateX(-50%) translateY(0);
-      }
-
-      .currency-option {
-        padding: 10px 16px;
-        font-size: 13px;
-        color: var(--gray-700);
-        cursor: pointer;
-        transition: background 0.15s;
-      }
-
-      .currency-option:hover {
-        background: var(--gray-100);
-      }
-      .currency-option.active {
-        color: var(--blue-600);
-        font-weight: 600;
-        background: var(--blue-50);
-      }
-
-      .btn-customize {
-        padding: 9px 22px;
-        background: var(--blue-600);
-        color: var(--white);
-        border-radius: 999px;
-        font-size: 13px;
-        font-weight: 600;
-        transition:
-          background 0.2s,
-          transform 0.15s;
-        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
-      }
-
-      .btn-customize:hover {
-        background: var(--blue-700);
-        transform: translateY(-1px);
-      }
-
-      /* ── Page Header ── */
-      .page-header {
-        background: linear-gradient(
-          135deg,
+    /* ── Page Header ── */
+    .page-header {
+      background: linear-gradient(135deg,
           var(--blue-600) 0%,
           var(--blue-500) 60%,
-          var(--blue-400) 100%
-        );
-        padding: 36px 32px;
-        position: relative;
-        overflow: hidden;
-      }
+          var(--blue-400) 100%);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
 
-      .page-header::before {
-        content: "";
-        position: absolute;
-        top: -40px;
-        right: -40px;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.06);
-      }
+    .page-header::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+    }
 
-      .page-header::after {
-        content: "";
-        position: absolute;
-        bottom: -60px;
-        left: 30%;
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.04);
-      }
+    .page-header::after {
+      content: "";
+      position: absolute;
+      bottom: -60px;
+      left: 30%;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+    }
 
-      .page-header-inner {
-        position: relative;
-        z-index: 1;
-      }
+    .page-header h1 {
+      font-family: "Inter", sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--white);
+    }
 
-      .breadcrumb {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 14px;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.6);
-      }
+    .page-header-inner {
+      position: relative;
+      z-index: 1;
+      font-family: "Inter";
+    }
 
-      .breadcrumb a {
-        color: rgba(255, 255, 255, 0.8);
-        transition: color 0.15s;
-      }
-      .breadcrumb a:hover {
-        color: var(--white);
-      }
-      .breadcrumb i {
-        font-size: 9px;
-      }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+    }
 
-      .page-header h1 {
-        font-family: "DM Serif Display", serif;
-        font-size: 28px;
-        font-weight: 400;
-        color: var(--white);
-      }
+    .breadcrumb a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: color 0.15s;
+    }
 
-      .page-header p {
-        margin-top: 6px;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.75);
-      }
+    .breadcrumb a:hover {
+      color: var(--white);
+    }
 
-      /* ── Layout ── */
+    .breadcrumb i {
+      font-size: 9px;
+    }
+
+    .page-header h1 {
+      font-family: "Inter", sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    .page-header p {
+      margin-top: 6px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* ── Layout ── */
+    .page-body {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 1024px) {
       .page-body {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 32px 24px 48px;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 24px;
+        grid-template-columns: 1fr 1fr;
       }
+    }
 
-      @media (min-width: 1024px) {
-        .page-body {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
+    /* ── Card ── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      width: 100% !important;
+      position: static !important;
+    }
 
-      /* ── Card ── */
-      .card {
-        background: var(--white);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-        overflow: hidden;
-        border: 1px solid var(--gray-200);
-        width: 100% !important;
-        position: static !important;
-      }
+    .page-body>.card {
+      width: 100% !important;
+      transform: none !important;
+    }
 
-      .page-body > .card {
-        width: 100% !important;
-        transform: none !important;
-      }
+    .page-body>.card:hover {
+      transform: none !important;
+    }
 
-      .page-body > .card:hover {
-        transform: none !important;
-      }
+    .page-body .card p {
+      position: static !important;
+    }
 
-      .page-body .card p {
-        position: static !important;
-      }
+    .page-body .card img {
+      width: auto;
+      height: 26px;
+      object-fit: contain;
+    }
 
-      .page-body .card img {
-        width: auto;
-        height: 26px;
-        object-fit: contain;
-      }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--gray-100);
+    }
 
-      .card-header {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 18px 24px;
-        border-bottom: 1px solid var(--gray-100);
-      }
+    .card-header-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: var(--blue-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blue-600);
+      font-size: 15px;
+      flex-shrink: 0;
+    }
 
-      .card-header-icon {
-        width: 34px;
-        height: 34px;
-        border-radius: var(--radius-sm);
-        background: var(--blue-50);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--blue-600);
-        font-size: 15px;
-        flex-shrink: 0;
-      }
+    .card-header h2 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-900);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
 
-      .card-header h2 {
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--gray-900);
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-      }
+    /* ── Booking Summary ── */
+    .summary-location {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 24px;
+      background: var(--blue-50);
+      border-bottom: 1px solid var(--blue-100);
+    }
 
-      /* ── Booking Summary ── */
-      .summary-location {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 18px 24px;
-        background: var(--blue-50);
-        border-bottom: 1px solid var(--blue-100);
-      }
+    .location-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--blue-500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
 
-      .location-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: var(--blue-500);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--white);
-        font-size: 18px;
-        flex-shrink: 0;
-      }
+    .location-text h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
 
-      .location-text h3 {
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--gray-900);
-      }
-      .location-text p {
-        font-size: 12px;
-        color: var(--gray-500);
-        margin-top: 2px;
-      }
+    .location-text p {
+      padding: 0;
+      font-size: 12px;
+      color: var(--gray-900);
+      background: #EFF6FF;
+    }
 
-      .summary-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 13px 24px;
-        border-bottom: 1px solid var(--gray-100);
-      }
+    .summary-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 24px;
+      border-bottom: 1px solid var(--gray-100);
+    }
 
-      .row-icon {
-        width: 30px;
-        height: 30px;
-        border-radius: 6px;
-        background: var(--gray-100);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--gray-500);
-        font-size: 12px;
-        flex-shrink: 0;
-      }
+    .row-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      background: var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-500);
+      font-size: 12px;
+      flex-shrink: 0;
+    }
 
-      .row-label {
-        flex: 1;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--gray-500);
-      }
-      .row-value {
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--gray-900);
-      }
+    .row-label {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray-500);
+    }
 
-      .price-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 11px 24px;
-        border-bottom: 1px solid var(--gray-100);
-        font-size: 13px;
-      }
+    .row-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
 
-      .price-label {
-        color: var(--gray-500);
-      }
-      .price-amount {
-        font-weight: 600;
-        color: var(--gray-900);
-      }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 24px;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 13px;
+    }
 
-      .price-total {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 24px;
-        background: var(--blue-50);
-      }
+    .price-label {
+      color: var(--gray-500);
+    }
 
-      .total-label {
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--gray-900);
-      }
+    .price-amount {
+      font-weight: 600;
+      color: var(--gray-900);
+    }
 
-      .total-amount {
-        font-family: "DM Serif Display", serif;
-        font-size: 24px;
-        color: var(--blue-600);
-      }
+    .price-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      background: var(--blue-50);
+    }
 
-      /* ── Payment Methods ── */
-      .payment-option {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 16px 24px;
-        border-bottom: 1px solid var(--gray-100);
-        cursor: pointer;
-        transition: background 0.15s;
-      }
+    .total-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
 
-      .payment-option:last-of-type {
-        border-bottom: none;
-      }
-      .payment-option:hover {
-        background: var(--blue-50);
-      }
+    .total-amount {
+      font-family: "Inter", sans-serif;
+      color: var(--blue-600);
+      font-size: 24px;
+      font-weight: 700;
+    }
 
-      .payment-option input[type="radio"] {
-        width: 18px;
-        height: 18px;
-        accent-color: var(--blue-500);
-        flex-shrink: 0;
-        cursor: pointer;
-      }
+    /* ── Payment Methods ── */
+    .payment-option {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--gray-100);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
 
-      .method-name {
-        flex: 1;
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--gray-900);
-      }
+    .payment-option:last-of-type {
+      border-bottom: none;
+    }
 
-      .payment-option .logos {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .payment-option .logos img {
-        height: 26px;
-        object-fit: contain;
-      }
-      .payment-option .logos img[alt="Apple Pay"] {
-        height: 26px;
-        max-width: 72px;
-        margin: 0;
-        object-fit: contain;
-      }
+    .payment-option:hover {
+      background: var(--blue-50);
+    }
 
-      .btn-continue-wrap {
-        padding: 20px 24px;
-        border-top: 1px solid var(--gray-100);
-      }
+    .payment-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--blue-500);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
 
-      .btn-continue {
-        width: 100%;
-        padding: 15px;
-        background: var(--blue-600);
-        color: var(--white);
-        font-size: 14px;
-        font-weight: 700;
-        border-radius: var(--radius-md);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        transition:
-          background 0.2s,
-          transform 0.15s,
-          box-shadow 0.2s;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
+    .method-name {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-900);
+    }
 
-      .btn-continue:hover {
-        background: var(--blue-700);
-        transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
-      }
+    .payment-option .logos {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-      .btn-continue:active {
-        transform: translateY(0);
-      }
+    .payment-option .logos img {
+      height: 26px;
+      object-fit: contain;
+    }
 
-      .secure-notice {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 12px;
-        font-size: 12px;
-        color: var(--gray-400);
-      }
+    .payment-option .logos img[alt="Apple Pay"] {
+      height: 26px;
+      max-width: 72px;
+      margin: 0;
+      object-fit: contain;
+    }
 
-      /* ── Customer Requests ── */
-      .request-card {
-        grid-column: 1 / -1;
-        background: var(--white);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-md);
-        border: 1px solid var(--gray-200);
-        overflow: hidden;
-      }
+    .btn-continue-wrap {
+      padding: 20px 24px;
+      border-top: 1px solid var(--gray-100);
+    }
 
-      .request-card textarea {
-        width: 100%;
-        min-height: 110px;
-        padding: 16px 24px;
-        background: var(--gray-50);
-        border: none;
-        font-size: 14px;
-        color: var(--gray-700);
-        font-family: inherit;
-        resize: vertical;
-        line-height: 1.6;
-        transition: background 0.2s;
-      }
+    .btn-continue {
+      width: 100%;
+      padding: 15px;
+      background: var(--blue-600);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition:
+        background 0.2s,
+        transform 0.15s,
+        box-shadow 0.2s;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
 
-      .request-card textarea::placeholder {
-        color: var(--gray-400);
-      }
-      .request-card textarea:focus {
-        outline: none;
-        background: var(--white);
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Page Header -->
-    <div id="header-root"></div>
-    <div class="page-header">
-      <div class="page-header-inner">
-        <div class="breadcrumb">
-          <a href="/pages/index.html">Home</a><span class="separator">></span>
-          <a href="/pages/tour-listing.html">Tour-Listing</a><span class="separator">></span>
-          <a href="/pages/tour-details.html">Tour-Details</a><span class="separator">></span>
-          <a href="/pages/booking.html">Tour-Booking</a><span class="separator">></span>
-          <a href="/pages/confirm.html">Payment</a>
-        </div>
-        <h1>Complete Your Payment</h1>
-        <p>Review your booking and choose a payment method to confirm.</p>
+    .btn-continue:hover {
+      background: var(--blue-700);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-continue:active {
+      transform: translateY(0);
+    }
+
+    .secure-notice {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+
+    /* ── Customer Requests ── */
+    .request-card {
+      grid-column: 1 / -1;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--gray-200);
+      overflow: hidden;
+    }
+
+    .request-card textarea {
+      width: 100%;
+      min-height: 110px;
+      padding: 16px 24px;
+      background: var(--gray-50);
+      border: none;
+      font-size: 14px;
+      color: var(--gray-700);
+      font-family: inherit;
+      resize: vertical;
+      line-height: 1.6;
+      transition: background 0.2s;
+    }
+
+    .request-card textarea::placeholder {
+      color: var(--gray-400);
+    }
+
+    .request-card textarea:focus {
+      outline: none;
+      background: var(--white);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Page Header -->
+  <div id="header-root"></div>
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span class="separator">></span>
+        <a href="tour-listing.html">Tour-Listing</a><span class="separator">></span>
+        <a href="tour-details.html">Tour-Details</a><span class="separator">></span>
+        <a href="booking.html">Tour-Booking</a><span class="separator">></span>
+        <a href="confirm.html">Payment Methods</a>
       </div>
-
+      <h1>Complete Your Payment</h1>
+      <p>Review your booking and choose a payment method to confirm.</p>
     </div>
 
-    <!-- Page Body -->
-    <div class="page-body">
-      <!-- Booking Summary -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-header-icon">
-            <i class="fa-solid fa-receipt"></i>
-          </div>
-          <h2>Booking Summary</h2>
-        </div>
+  </div>
 
-        <div class="summary-location">
-          <div class="location-icon">
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
-          <div class="location-text">
-            <h3 id="summary-tour-name">Kampot Adventure</h3>
-            <p id="summary-location">Cambodia, Kampot</p>
-          </div>
+  <!-- Page Body -->
+  <div class="page-body">
+    <!-- Booking Summary -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <i class="fa-solid fa-receipt"></i>
         </div>
+        <h2>Booking Summary</h2>
+      </div>
 
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-user"></i></div>
-          <span class="row-label">Traveler</span>
-          <span class="row-value" id="summary-name">—</span>
+      <div class="summary-location">
+        <div class="location-icon">
+          <i class="fa-solid fa-location-dot"></i>
         </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-bed"></i></div>
-          <span class="row-label">Room Type</span>
-          <span class="row-value" id="summary-room">—</span>
-        </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-star"></i></div>
-          <span class="row-label">Add-ons</span>
-          <span class="row-value" id="summary-addons">—</span>
-        </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-calendar"></i></div>
-          <span class="row-label">Travel Dates</span>
-          <span class="row-value">May 15 – 22, 2026</span>
-        </div>
-
-        <div class="summary-row">
-          <div class="row-icon"><i class="fa-solid fa-user-group"></i></div>
-          <span class="row-label">Travelers</span>
-          <span class="row-value">1 Adults, 1 Child</span>
-        </div>
-
-        <div class="price-row">
-          <span class="price-label">Adult × 1</span>
-          <span class="price-amount">USD 50</span>
-        </div>
-        <div class="price-row">
-          <span class="price-label">Child × 1</span>
-          <span class="price-amount">USD 25</span>
-        </div>
-
-        <div class="price-total">
-          <span class="total-label">Total Cost</span>
-          <span class="total-amount" id="summary-total">USD 75</span>
+        <div class="location-text">
+          <h3 id="summary-tour-name">Kampot Adventure</h3>
+          <p id="summary-location">Cambodia, Kampot</p>
         </div>
       </div>
 
-      <!-- Payment Methods -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-header-icon">
-            <i class="fa-solid fa-credit-card"></i>
-          </div>
-          <h2>Payment Methods</h2>
-        </div>
-
-        <label class="payment-option">
-          <input type="radio" name="payment" value="credit-card" />
-          <span class="method-name">Credit Card</span>
-          <div class="logos">
-            <img src="../assets/logo/Visa-Logo.jpg" alt="Visa" />
-            <img src="../assets/logo/Mastercard-Logo.png" alt="Mastercard" />
-          </div>
-        </label>
-
-        <label class="payment-option">
-          <input type="radio" name="payment" value="aba" />
-          <span class="method-name">ABA Bank</span>
-          <div class="logos">
-            <img src="../assets/logo/Aba-Logo.png" alt="ABA" />
-          </div>
-        </label>
-
-        <label class="payment-option">
-          <input type="radio" name="payment" value="alipay" />
-          <span class="method-name">Alipay</span>
-          <div class="logos">
-            <img src="../assets/logo/Alipay-Logo.png" alt="Alipay" />
-          </div>
-        </label>
-
-        <label class="payment-option">
-          <input type="radio" name="payment" value="applepay" />
-          <span class="method-name">Apple Pay</span>
-          <div class="logos">
-            <img src="../assets/logo/applepay.png" alt="Apple Pay" />
-          </div>
-        </label>
-
-        <label class="payment-option">
-          <input type="radio" name="payment" value="paypal" />
-          <span class="method-name">PayPal</span>
-          <div class="logos">
-            <img src="../assets/logo/Paypal-Logo.png" alt="PayPal" />
-          </div>
-        </label>
-
-        <div class="btn-continue-wrap">
-          <button class="btn-continue">
-            <i class="fa-solid fa-lock"></i>
-            Continue to Pay
-          </button>
-          <div class="secure-notice">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>256-bit SSL encrypted & secure checkout</span>
-          </div>
-        </div>
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-user"></i></div>
+        <span class="row-label">Traveler</span>
+        <span class="row-value" id="summary-name">—</span>
       </div>
 
-      <!-- Customer Requests -->
-      <div class="request-card">
-        <div class="card-header">
-          <div class="card-header-icon">
-            <i class="fa-solid fa-comment-dots"></i>
-          </div>
-          <h2>Customer Requests</h2>
-        </div>
-        <textarea
-          id="customer-request"
-          placeholder="Any dietary requirements, allergies, room preferences, pickup location, or special requests? Let us know here..."
-        ></textarea>
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-bed"></i></div>
+        <span class="row-label">Room Type</span>
+        <span class="row-value" id="summary-room">—</span>
+      </div>
+
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-star"></i></div>
+        <span class="row-label">Add-ons</span>
+        <span class="row-value" id="summary-addons">—</span>
+      </div>
+
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-calendar"></i></div>
+        <span class="row-label">Travel Dates</span>
+        <span class="row-value" id="summary-date">May 15 - 22, 2026</span>
+      </div>
+
+      <div class="summary-row">
+        <div class="row-icon"><i class="fa-solid fa-user-group"></i></div>
+        <span class="row-label">Travelers</span>
+        <span class="row-value" id="summary-travelers">-</span>
+      </div>
+
+      <div id="summary-price-breakdown"></div>
+
+      <div class="price-total">
+        <span class="total-label">Total Cost</span>
+        <span class="total-amount" id="summary-total">USD 75</span>
       </div>
     </div>
 
-    <!-- Scripts -->
-    <script src="./../js/components/header.js"></script>
-    <script src="./../js/components/footer.js"></script>
-    <script src="./../js/utils.js"></script>
-    <script src="./../js/main.js"></script>
+    <!-- Payment Methods -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <i class="fa-solid fa-credit-card"></i>
+        </div>
+        <h2>Payment Methods</h2>
+      </div>
 
-    <script>
-      // ── Booking summary from localStorage ──
-      const bookingData = JSON.parse(localStorage.getItem("bookingData"));
+      <label class="payment-option">
+        <input type="radio" name="payment" value="credit-card" />
+        <span class="method-name">Credit Card</span>
+        <div class="logos">
+          <img src="../assets/logo/Visa-Logo.jpg" alt="Visa" />
+          <img src="../assets/logo/Mastercard-Logo.png" alt="Mastercard" />
+        </div>
+      </label>
 
-      if (bookingData) {
-        if (bookingData.name)
-          document.getElementById("summary-name").textContent =
-            bookingData.name;
-        if (bookingData.room)
-          document.getElementById("summary-room").textContent =
-            bookingData.room + " Room";
-        if (bookingData.addons && bookingData.addons.length > 0)
-          document.getElementById("summary-addons").textContent =
-            bookingData.addons.join(", ");
-        else
-          document.getElementById("summary-addons").textContent = "No add-ons";
+      <label class="payment-option">
+        <input type="radio" name="payment" value="aba" />
+        <span class="method-name">ABA Bank</span>
+        <div class="logos">
+          <img src="../assets/logo/Aba-Logo.png" alt="ABA" />
+        </div>
+      </label>
 
-        let total = 75;
-        if (bookingData.addons) {
-          if (bookingData.addons.includes("Travel Insurance (Recommended)"))
-            total += 145;
-          if (bookingData.addons.includes("Airport Transfer")) total += 85;
-          if (bookingData.addons.includes("Extra Night in Catania"))
-            total += 220;
-        }
-        document.getElementById("summary-total").textContent = "USD " + total;
-      }
+      <label class="payment-option">
+        <input type="radio" name="payment" value="alipay" />
+        <span class="method-name">Alipay</span>
+        <div class="logos">
+          <img src="../assets/logo/Alipay-Logo.png" alt="Alipay" />
+        </div>
+      </label>
 
-      // ── Continue button ──
-      document
-        .querySelector(".btn-continue")
-        .addEventListener("click", function () {
-          const selected = document.querySelector(
-            'input[name="payment"]:checked',
-          );
-          if (!selected) {
-            alert("Please select a payment method first.");
-            return;
-          }
-          localStorage.setItem("selectedPayment", selected.value);
-          localStorage.setItem(
-            "customerRequest",
-            document.getElementById("customer-request").value,
-          );
-          if (selected.value == "credit-card") {
-            window.location.href = "confirm2.html";
-          } else {
-            alert("Please choose Credit Card to this page.");
-          }
-        });
+      <label class="payment-option">
+        <input type="radio" name="payment" value="applepay" />
+        <span class="method-name">Apple Pay</span>
+        <div class="logos">
+          <img src="../assets/logo/applepay.png" alt="Apple Pay" />
+        </div>
+      </label>
 
-      // ── Currency selector ──
-      const currencySelector = document.getElementById("currency-selector");
+      <label class="payment-option">
+        <input type="radio" name="payment" value="paypal" />
+        <span class="method-name">PayPal</span>
+        <div class="logos">
+          <img src="../assets/logo/Paypal-Logo.png" alt="PayPal" />
+        </div>
+      </label>
 
-      currencySelector.addEventListener("click", function (e) {
-        this.classList.toggle("is-open");
-        e.stopPropagation();
-      });
+      <div class="btn-continue-wrap">
+        <button class="btn-continue">
+          <i class="fa-solid fa-lock"></i>
+          Continue to Pay
+        </button>
+        <div class="secure-notice">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>256-bit SSL encrypted & secure checkout</span>
+        </div>
+      </div>
+    </div>
 
-      document.addEventListener("click", function () {
-        currencySelector.classList.remove("is-open");
-      });
+    <!-- Customer Requests -->
+    <div class="request-card">
+      <div class="card-header">
+        <div class="card-header-icon">
+          <i class="fa-solid fa-comment-dots"></i>
+        </div>
+        <h2>Customer Requests</h2>
+      </div>
+      <textarea id="customer-request"
+        placeholder="Any dietary requirements, allergies, room preferences, pickup location, or special requests? Let us know here..."></textarea>
+    </div>
+  </div>
 
-      document.querySelectorAll(".currency-option").forEach(function (option) {
-        option.addEventListener("click", function (e) {
-          e.stopPropagation();
-          const currency = this.dataset.currency;
-          document.getElementById("currency-label").textContent =
-            "Currency (" + currency + ")";
-          document.querySelectorAll(".currency-option").forEach(function (o) {
-            o.classList.remove("active");
-          });
-          this.classList.add("active");
-          localStorage.setItem("selectedCurrency", currency);
-          localStorage.setItem("currencyRate", this.dataset.rate);
-          currencySelector.classList.remove("is-open");
-        });
-      });
-    </script>
-    <div id="footer-root"></div>
+  <!-- Scripts -->
+  <script src="./../js/components/header.js"></script>
+  <script src="./../js/components/footer.js"></script>
+  <script src="./../js/utils.js"></script>
+  <script src="./../js/main.js"></script>
 
-    <!-- Scripts -->
-    <script src="./../js/components/header.js"></script>
-    <script src="./../js/components/footer.js"></script>
-    <script src="./../js/utils.js"></script>
-    <script src="./../js/main.js"></script>
-    <script src="./../js/pages/tourDetails.js"></script>
-  </body>
+
+  <div id="footer-root"></div>
+
+  <!-- Scripts -->
+  <script src="./../js/components/header.js"></script>
+  <script src="./../js/components/footer.js"></script>
+  <script src="./../js/utils.js"></script>
+  <script src="./../js/main.js"></script>
+  <script src="./../js/pages/tourDetails.js"></script>
+  <script src="../js/pages/confirm.js"> </script>
+</body>
+
 </html>
