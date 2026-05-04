@@ -1,3 +1,4 @@
+Document.addEventListener("DOMContentLoaded", function () {
 const images = document.querySelectorAll(".tour-card img");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
@@ -30,3 +31,4 @@ if (closeBtn) {
     lightbox.style.display = "none";
   });
 }
+});
