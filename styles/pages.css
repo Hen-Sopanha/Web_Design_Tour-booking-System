@@ -777,13 +777,15 @@ ul.timeline-desc {
     position: absolute;
     right: 20px;
 }
-
+/* home page styles */
 /* Destinations sidebar */
 .destinations-bar {
     background: white;
     border-radius: 20px;
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-align: center;
+
 }
 
 body {
@@ -832,16 +834,23 @@ body {
     border-radius: 5px;
 }
 
-/* Attractive section */
-.attractive-section {
-    background: linear-gradient(135deg, #ff7e5e, #feb47b);
-    color: white;
-    padding: 2rem;
+/* Attractive section & Hidden Gems*/
+.Attrativetrips-section {
+    color: black;
+    padding: 1.5rem;
     border-radius: 20px;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
-
-/* Responsive adjustments */
+.gems-section {
+    color: black;
+    padding: 1.5rem;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 /* scroll container */
 .horizontal-scroll-wrapper {
     overflow-x: auto;
@@ -889,4 +898,202 @@ body {
 .h-card-content p {
     font-size: 0.8rem;
     color: gray;
+}
+
+
+/*Tour Customize style*/
+* {
+    box-sizing: border-box;
+}
+.tour-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.simple-header {
+  background: #f8fafc;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.simple-header h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0f3b5c;
+}
+
+.simple-header p {
+  font-size: 0.85rem;
+  color: #4a627a;
+  margin-top: 0.3rem;
+}
+
+.customizer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.form-section h2, .preview-section h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  border-left: 4px solid #2c7a6e;
+  padding-left: 0.75rem;
+  color: #1f4a6b;
+}
+
+.field {
+  margin-bottom: 1.2rem;
+}
+
+.field label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+  color: #2c4e6e;
+}
+
+select, input, textarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.9rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: white;
+  transition: 0.15s;
+}
+
+select:focus, input:focus, textarea:focus {
+  outline: none;
+  border-color: #2c7a6e;
+  box-shadow: 0 0 0 2px rgba(44,122,110,0.15);
+}
+
+.range-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.range-wrapper input {
+  flex: 2;
+}
+
+.range-value {
+  background: #eef2f6;
+  padding: 0.3rem 0.9rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+small {
+  font-size: 0.7rem;
+  color: #64748b;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.preview-card {
+  background: #f9fbfd;
+  border-radius: 1.2rem;
+  padding: 1.2rem;
+  border: 1px solid #e9edf2;
+}
+
+.preview-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.preview-row:last-child {
+  border-bottom: none;
+}
+
+.preview-label {
+  font-weight: 500;
+  color: #475569;
+}
+
+.preview-value {
+  font-weight: 500;
+  color: #0f3b5c;
+  text-align: right;
+}
+
+.total-box {
+  margin-top: 1.2rem;
+  background: #e6f0ef;
+  border-radius: 1rem;
+  padding: 0.9rem;
+  text-align: center;
+}
+
+.total-amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1f6e5c;
+  letter-spacing: -0.3px;
+}
+
+.total-label {
+  font-size: 0.75rem;
+  color: #2c5a6e;
+  margin-bottom: 0.2rem;
+}
+
+.footnote {
+  font-size: 0.7rem;
+  text-align: center;
+  margin-top: 0.8rem;
+  color: #5f7f9c;
+}
+
+.live-badge {
+  font-size: 0.7rem;
+  background: #eef2ff;
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 30px;
+  margin-top: 0.6rem;
+}
+
+.simple-footer {
+  border-top: 1px solid #e9edf2;
+  padding: 1rem 2rem;
+  font-size: 0.7rem;
+  color: #6c86a0;
+  background: #fefefe;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.inline-code {
+  background: #f1f5f9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.7rem;
 }
