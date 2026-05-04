@@ -5,12 +5,16 @@ const currencies = [
   { code: 'GBP', label: 'GBP' },
 ];
 
+function assetUrl(relativePath) {
+  return new URL(relativePath, document.baseURI).href;
+}
+
 function createHeader() {
   const header = document.createElement('header');
   header.className = 'site-header';
   header.innerHTML = `
     <div class="header-inner">
-      <img src="./../assets/logo/CamTravel-Logo.png" alt="CamTravel" class="header-logo-img">
+      <img src="${assetUrl('../assets/logo/CamTravel-Logo.png')}" alt="CamTravel" class="header-logo-img">
 
       <div class="header-controls">
         <div class="currency-selector" id="currencySelector">
@@ -71,7 +75,7 @@ function initCurrencyDropdown() {
   // Set initial currency from localStorage
   const savedCurrency = localStorage.getItem('selectedCurrency') || 'USD';
   label.textContent = `Currency (${savedCurrency})`;
-  
+
   dropdown.querySelectorAll('.currency-option').forEach(el => {
     if (el.dataset.code === savedCurrency) {
       el.classList.add('is-selected');
@@ -105,7 +109,6 @@ function initCurrencyDropdown() {
     selector.classList.remove('is-open');
     btn.setAttribute('aria-expanded', 'false');
 
-    // Store and dispatch change event
     localStorage.setItem('selectedCurrency', code);
     const currencyChangedEvent = new CustomEvent('currencyChanged', { detail: { code } });
     document.dispatchEvent(currencyChangedEvent);

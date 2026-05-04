@@ -1,374 +1,796 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Booking | Mediterranean Prestige</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/components.css">
+    <!-- <link rel="stylesheet" href="../styles/pages.css"> -->
+    <!-- <link rel="stylesheet" href="../styles/responsive.css"> -->
+    <!-- <link rel="stylesheet" href="../styles/base.css"> -->
+    <!-- <link rel="stylesheet" href="../styles/layout.css"> -->
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Secure Booking | Mediterranean Prestige</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-error": "#ffffff",
-                        "on-primary": "#ffffff",
-                        "secondary-fixed": "#ffe088",
-                        "on-tertiary-container": "#be7c00",
-                        "inverse-primary": "#b2c7ef",
-                        "surface-variant": "#e1e3e4",
-                        "on-surface-variant": "#44474e",
-                        "on-secondary-container": "#745c00",
-                        "on-primary-container": "#768baf",
-                        "surface-container-high": "#e7e8e9",
-                        "surface-container": "#edeeef",
-                        "tertiary-fixed": "#ffddb5",
-                        "on-primary-fixed-variant": "#324768",
-                        "error-container": "#ffdad6",
-                        "inverse-surface": "#2e3132",
-                        "primary-fixed": "#d5e3ff",
-                        "on-secondary-fixed-variant": "#574500",
-                        "on-error-container": "#93000a",
-                        "error": "#ba1a1a",
-                        "primary-container": "#0a2342",
-                        "surface-bright": "#f8f9fa",
-                        "surface-container-lowest": "#ffffff",
-                        "tertiary-container": "#331e00",
-                        "on-surface": "#191c1d",
-                        "tertiary": "#150a00",
-                        "on-tertiary-fixed": "#2a1800",
-                        "primary-fixed-dim": "#b2c7ef",
-                        "tertiary-fixed-dim": "#ffb957",
-                        "secondary-container": "#fed65b",
-                        "surface-dim": "#d9dadb",
-                        "secondary-fixed-dim": "#e9c349",
-                        "inverse-on-surface": "#f0f1f2",
-                        "surface": "#f8f9fa",
-                        "secondary": "#735c00",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary": "#ffffff",
-                        "on-primary-fixed": "#021c3a",
-                        "on-secondary-fixed": "#241a00",
-                        "outline": "#74777e",
-                        "on-background": "#191c1d",
-                        "surface-container-highest": "#e1e3e4",
-                        "outline-variant": "#c4c6cf",
-                        "on-tertiary-fixed-variant": "#643f00",
-                        "surface-tint": "#4a5f81",
-                        "surface-container-low": "#f3f4f5",
-                        "primary": "#000d22",
-                        "background": "#f8f9fa"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "1rem",
-                        "xl": "1.25rem",
-                        "2xl": "1.5rem",
-                        "3xl": "2rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "gutter": "24px",
-                        "margin-desktop": "64px",
-                        "section-gap": "80px",
-                        "margin-mobile": "16px",
-                        "base": "8px",
-                        "container-max-width": "1280px"
-                    },
-                    "fontFamily": {
-                        "body-md": ["Manrope"],
-                        "body-lg": ["Manrope"],
-                        "headline-sm": ["Noto Serif"],
-                        "label-md": ["Manrope"],
-                        "label-sm": ["Manrope"],
-                        "headline-lg": ["Noto Serif"],
-                        "headline-md": ["Noto Serif"]
-                    },
-                    "fontSize": {
-                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
-                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                        "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700"}],
-                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}]
-                    }
-                },
-            },
+    <style>
+        :root {
+            --bg: #f8f9fa;
+            --surface: #ffffff;
+            --surface-2: #f3f4f5;
+            --surface-border: #e1e3e4;
+            --text: #191c1d;
+            --text-muted: #6f7280;
+            --text-strong: #0a2342;
+            --primary: #000d22;
+            --secondary: #735c00;
+            --secondary-light: #fed65b;
+            --accent: #0a2342;
+            --success: #0f5132;
+            --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+            --radius: 24px;
+            --radius-sm: 16px;
+            --radius-xs: 12px;
         }
-    </script>
-<style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
         }
+
+        .container {
+            width: min(1200px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid #e7e8e9;
+            z-index: 50;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80px;
+        }
+
+        .brand {
+            font-family: 'Noto Serif', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: var(--accent);
+        }
+
+        .nav-links,
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-links a,
+        .footer-links a,
+        .support-button {
+            font-family: 'Noto Serif', serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.06em;
+            color: #6f7280;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .footer-links a:hover,
+        .support-button:hover {
+            color: var(--accent);
+        }
+
+        .button-secondary,
+        .button-primary {
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            padding: 12px 24px;
+            cursor: pointer;
+            font-family: 'Noto Serif', serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.06em;
+            transition: all 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .button-primary:hover,
+        .button-secondary:hover {
+            opacity: 0.95;
+        }
+
+        main {
+            margin: 32px auto 0;
+            padding-bottom: 48px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 360px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid #e8eaed;
+            border-radius: var(--radius);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+        }
+
+        .card-inner {
+            padding: 32px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 0 0 24px;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .section-title .material-symbols-outlined {
+            font-size: 1.4rem;
+            color: var(--secondary);
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .field label {
+            font-weight: 600;
+            color: #555968;
+            font-size: 0.95rem;
+        }
+
+        .field input,
+        .field select {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid #d1d4db;
+            background: #f3f4f5;
+            padding: 16px 18px;
+            font-size: 1rem;
+            color: var(--text);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .field input:focus,
+        .field select:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 4px rgba(254, 214, 91, 0.2);
+            background: white;
+        }
+
+        .panel {
+            border-radius: 24px;
+            border: 1px solid #d1d4db;
+            padding: 24px;
+            background: white;
+        }
+
+        .radio-grid,
+        .addon-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .radio-option,
+        .addon-option {
+            position: relative;
+            border-radius: 24px;
+            border: 1px solid #d1d4db;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .radio-option:hover,
+        .addon-option:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 12px 28px rgba(115, 92, 0, 0.08);
+        }
+
+        .radio-option input,
+        .addon-option input {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 20px;
+            height: 20px;
+            accent-color: var(--secondary);
+        }
+
+        .radio-option.active,
+        .addon-option.active {
+            border-color: var(--secondary);
+            box-shadow: 0 20px 50px rgba(115, 92, 0, 0.1);
+        }
+
+        .radio-label,
+        .addon-label {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .radio-description,
+        .addon-description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .addon-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .addon-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .top-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e9f7ee;
+            color: #176f3e;
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .payment-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .payment-tab {
+            border: 1px solid #c8cadd;
+            border-radius: 18px;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .payment-tab.active {
+            border-color: var(--secondary);
+        }
+        .payment-tab:hover {
+            border-color: var(--secondary);
+            background-color: #1A6FDB ;
+            color: #ffffff;
+        }
+        .payment-tab span {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .payment-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .info-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #6f7280;
+            font-size: 0.95rem;
+            margin-top: 18px;
+        }
+
+        .summary-card {
+            overflow: hidden;
+        }
+
+        .summary-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .summary-body {
+            padding: 28px;
+        }
+
+        .summary-title {
+            margin: 0 0 18px;
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .summary-detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #6f7280;
+            margin-bottom: 12px;
+        }
+
+        .summary-detail span {
+            font-weight: 600;
+        }
+
+        .price-row,
+        .price-total {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .price-row {
+            padding: 12px 0;
+            color: var(--text);
+        }
+
+        .price-total {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e7e8e9;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .summary-card button {
+            width: 100%;
+            margin-top: 24px;
+            background: var(--secondary-light);
+            border: none;
+            border-radius: 18px;
+            padding: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #241a00;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .summary-card button:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .summary-small {
+            margin-top: 12px;
+            font-size: 0.75rem;
+            text-align: center;
+            color: #6f7280;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .trust-list {
+            display: grid;
+            gap: 12px;
+            font-size: 0.50rem;
+        }
+
+        .trust-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px;
+            border-radius: 22px;
+            background: #fff;
+            border: 1px solid #ebedf0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .trust-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .trust-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 18px;
+            background: #d6e3ff;
+            display: grid;
+            place-items: center;
+            color: var(--accent);
+        }
+
+        .trust-item h4 {
+            margin: 0 0 6px;
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .trust-item p {
+            margin: 0;
+            color: #6f7280;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: #f1f4f8;
+            border-top: 1px solid #e7e8e9;
+            padding: 32px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-brand {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .footer-meta {
+            margin: 6px 0 0;
+            color: #6f7280;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 980px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-card {
+                position: relative;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .top-bar,
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links,
+            .footer-links,
+            .payment-tabs {
+                width: 100%;
+            }
+
+            .payment-tabs {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* .active {
+            background-color: #1A6FDB;
+            color: #ffffff;
+        } */
     </style>
 </head>
-<body class="bg-background text-on-surface font-body-lg text-base md:text-lg lg:text-xl leading-relaxed xl:overflow-x-hidden">
-<!-- TopNavBar -->
-<header class="bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
-<div class="flex justify-between items-center h-20 px-8 w-full max-w-7xl mx-auto">
-<div class="text-3xl md:text-4xl font-bold text-[#0A2342] dark:text-white tracking-tight font-['Noto_Serif']">
-            Mediterranean Prestige
+<body>
+    <!-- header -->
+    <div id="header-root"></div>
+    
+    <main class="container">
+        <div class="grid grid-2" style="margin-top: 20px; margin-bottom: 20px;">
+            <div>
+                <div class="card card-inner">
+                    <section>
+                        <h2 class="section-title"><span class="material-symbols-outlined">person</span>Traveler Details</h2>
+                        <div class="form-grid">
+                            <div class="field">
+                                <label for="firstName">First Name</label>
+                                <input id="firstName" type="text" placeholder="Enter first name">
+                            </div>
+                            <div class="field">
+                                <label for="lastName">Last Name</label>
+                                <input id="lastName" type="text" placeholder="Enter last name">
+                            </div>
+                            <div class="field">
+                                <label for="email">Email Address</label>
+                                <input id="email" type="email" placeholder="name@luxury-travel.com">
+                            </div>
+                            <div class="field">
+                                <label for="phone">Phone Number</label>
+                                <input id="phone" type="tel" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div class="field" style="grid-column: span 2;">
+                                <label for="nationality">Nationality</label>
+                                <select id="nationality">
+                                    <option>United States</option>
+                                    <option>United Kingdom</option>
+                                    <option>Canada</option>
+                                    <option>Australia</option>
+                                    <option>Germany</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="card card-inner" style="margin-top: 32px;">
+                    <section>
+                        <h2 class="section-title"><span class="material-symbols-outlined">bed</span>Room Selection</h2>
+                        <div class="radio-grid" id="roomOptions">
+                            <label class="radio-option active">
+                                <input type="radio" name="room" value="single" checked>
+                                <span class="radio-label">Single</span>
+                                <span class="radio-description">Solo traveler room</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="room" value="double">
+                                <span class="radio-label">Double</span>
+                                <span class="radio-description">Twin or King shared</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="room" value="triple">
+                                <span class="radio-label">Triple</span>
+                                <span class="radio-description">Three guests sharing</span>
+                            </label>
+                        </div>
+                    </section>
+                </div>
+                <div class="card card-inner" style="margin-top: 32px;">
+                    <section>
+                        <h2 class="section-title"><span class="material-symbols-outlined">add_circle</span>Optional Add-ons</h2>
+                        <div class="addon-list">
+                            <label class="addon-option active">
+                                <div class="addon-row">
+                                    <div>
+                                        <div class="addon-label">Travel Insurance (Recommended)</div>
+                                        <div class="addon-description">Full protection for your Sicilian adventure</div>
+                                    </div>
+                                    <span class="addon-price">+$145</span>
+                                </div>
+                                <input type="checkbox" name="addon" value="insurance" checked>
+                            </label>
+                            <label class="addon-option">
+                                <div class="addon-row">
+                                    <div>
+                                        <div class="addon-label">Airport Transfer</div>
+                                        <div class="addon-description">Private chauffeur from CTA Airport to Hotel</div>
+                                    </div>
+                                    <span class="addon-price">+$85</span>
+                                </div>
+                                <input type="checkbox" name="addon" value="transfer">
+                            </label>
+                            <label class="addon-option">
+                                <div class="addon-row">
+                                    <div>
+                                        <div class="addon-label">Extra Night in Catania</div>
+                                        <div class="addon-description">Extend your stay with 1 night at the Grand Hotel Baia Verde</div>
+                                    </div>
+                                    <span class="addon-price">+$220</span>
+                                </div>
+                                <input type="checkbox" name="addon" value="extra-night">
+                            </label>
+                        </div>
+                    </section>
+                </div>
+                <div class="card card-inner" style="margin-top: 32px;">
+                    <section>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; flex-wrap:wrap; gap:12px;">
+                            <h2 class="section-title" style="margin:0;"><span class="material-symbols-outlined">shield</span>Secure Payment</h2>
+                            <div class="top-badge"><span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">lock</span>Secure Checkout</div>
+                        </div>
+                        <div class="panel">
+                            <div class="payment-tabs" id="paymentTabs">
+                                <button class="payment-tab " type="button" data-payment="card" ><span class="material-symbols-outlined">credit_card</span>Credit/Debit Card</button>
+                                <button class="payment-tab" type="button" data-payment="paypal" ><span class="material-symbols-outlined" >payments</span>PayPal</button>
+                            </div>
+                            <div class="payment-grid">
+                                <div class="field" style="grid-column: span 2;">
+                                    <label for="cardNumber">Card Number</label>
+                                    <div style="position:relative;">
+                                        <input id="cardNumber" type="text" placeholder="0000 0000 0000 0000">
+                                        <span class="material-symbols-outlined" style="position:absolute; right:16px; top:50%; transform:translateY(-50%); color:#7f8291;">credit_card</span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input id="expiryDate" type="text" placeholder="MM / YY">
+                                </div>
+                                <div class="field">
+                                    <label for="cvv">CVV</label>
+                                    <input id="cvv" type="text" placeholder="123">
+                                </div>
+                                <div class="field" style="grid-column: span 2;">
+                                    <label for="cardName">Name on Card</label>
+                                    <input id="cardName" type="text" placeholder="As it appears on your card">
+                                </div>
+                            </div>
+                            <div class="info-text">
+                                <span class="material-symbols-outlined">info</span>
+                                Your transaction is protected by industry-leading 256-bit SSL encryption.
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div style="position:sticky; top:3px; align-self:start; display:flex; flex-direction:column; gap:30px;">
+                <div class="summary-card card">
+                    <img class="summary-image" src=" D:\c++\Web 1\Web_Design_Tour-booking-System\assets\images\Kep.jpg " alt="Kep">
+                    <div class="summary-body">
+                        <h3 class="summary-title">Kep</h3>
+                        <div class="summary-detail"><span class="material-symbols-outlined">calendar_today</span><span>May 15 - May 22, 2026</span></div>
+                        <div class="summary-detail"><span class="material-symbols-outlined">schedule</span><span>8 Days / 7 Nights</span></div>
+                        <div class="summary-detail"><span class="material-symbols-outlined">group</span><span>2 Travelers</span></div>
+                        <div style="border-top:1px solid #e7e8e9; padding-top:20px; margin-top:20px;">
+                            <div class="price-row"><span>Tour Price ($1,850 x 2)</span><span>$3,700.00</span></div>
+                            <div class="price-row"><span>Room Surcharge</span><span id="roomSurcharge">$0.00</span></div>
+                            <div class="price-row"><span>Taxes & Fees</span><span>$120.00</span></div>
+                            <div class="price-total"><span>Total Price</span><span id="totalPrice">$3,820.00</span></div>
+                        </div>
+                        <button id="confirmPayment" style="background-color:  #1A6FDB; color:  #ffffff;;">Confirm & Pay</button>
+                        <p class="summary-small">By clicking "Confirm & Pay", you agree to our Terms of Service</p>
+                    </div>
+                </div>
+                <div class="trust-list" style="margin-top:32px;">
+                    <div class="trust-item">
+                        <div class="trust-icon"><span class="material-symbols-outlined">verified_user</span></div>
+                        <div>
+                            <h4>Best Price Guarantee</h4>
+                            <p>Find a lower price and we'll match it plus give you a $50 credit.</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon"><span class="material-symbols-outlined">support_agent</span></div>
+                        <div>
+                            <h4>24/7 Expert Support</h4>
+                            <p>Our concierge team is available around the clock during your trip.</p>
+                        </div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-icon"><span class="material-symbols-outlined">lock_reset</span></div>
+                        <div>
+                            <h4>PCI-Compliant Payment</h4>
+                            <p>Your payment details are never stored on our servers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-<nav class="hidden md:flex gap-8 items-center">
-<a class="font-['Noto_Serif'] text-sm md:text-base tracking-wide text-slate-500 dark:text-slate-400 hover:text-[#0A2342] transition-colors" href="#">Destinations</a>
-<a class="font-['Noto_Serif'] text-sm md:text-base tracking-wide text-slate-500 dark:text-slate-400 hover:text-[#0A2342] transition-colors" href="#">Experiences</a>
-<a class="font-['Noto_Serif'] text-sm md:text-base tracking-wide text-slate-500 dark:text-slate-400 hover:text-[#0A2342] transition-colors" href="#">Villas</a>
-<a class="font-['Noto_Serif'] text-sm md:text-base tracking-wide text-slate-500 dark:text-slate-400 hover:text-[#0A2342] transition-colors" href="#">Concierge</a>
-</nav>
-<div class="flex gap-4">
-<button class="font-['Noto_Serif'] text-sm tracking-wide text-slate-500 dark:text-slate-400 hover:text-[#0A2342]">Support</button>
-<button class="font-['Noto_Serif'] text-sm tracking-wide text-[#0A2342] dark:text-slate-200 border border-[#0A2342] px-4 py-2 hover:bg-[#0A2342] hover:text-white transition-all rounded-xl">Sign In</button>
-</div>
-</div>
-</header>
-<main class="max-w-7xl mx-auto px-8 py-12">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-<!-- Left Column: Booking Steps & Details -->
-<div class="lg:col-span-8">
-<div class="space-y-20">
-<!-- Traveler Details Section -->
-<section>
-<h2 class="font-headline-md md:font-headline-lg text-primary mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined">person</span> Traveler Details
-                    </h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 border border-slate-100 shadow-sm rounded-3xl">
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-on-surface-variant">First Name</label>
-<input class="border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 bg-surface-container-low rounded-2xl" placeholder="Enter first name" type="text"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-on-surface-variant">Last Name</label>
-<input class="border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 bg-surface-container-low rounded-2xl" placeholder="Enter last name" type="text"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-on-surface-variant">Email Address</label>
-<input class="border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 bg-surface-container-low rounded-2xl" placeholder="name@luxury-travel.com" type="email"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-on-surface-variant">Phone Number</label>
-<input class="border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 bg-surface-container-low rounded-2xl" placeholder="+1 (555) 000-0000" type="tel"/>
-</div>
-<div class="flex flex-col gap-2 md:col-span-2">
-<label class="font-label-md text-on-surface-variant">Nationality</label>
-<select class="border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 bg-surface-container-low rounded-2xl">
-<option>United States</option>
-<option>United Kingdom</option>
-<option>Canada</option>
-<option>Australia</option>
-<option>Germany</option>
-</select>
-</div>
-</div>
-</section>
-<!-- Room Selection Section -->
-<section>
-<h2 class="font-headline-md md:font-headline-lg text-primary mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined">bed</span> Room Selection
-                    </h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<label class="relative flex flex-col p-6 bg-white border border-outline-variant cursor-pointer hover:border-secondary transition-all group rounded-2xl">
-<input checked="" class="absolute top-4 right-4 text-secondary focus:ring-secondary" name="room" type="radio"/>
-<span class="font-headline-sm text-primary mb-1">Single</span>
-<span class="text-on-surface-variant font-label-sm">Solo traveler room</span>
-</label>
-<label class="relative flex flex-col p-6 bg-white border border-outline-variant cursor-pointer hover:border-secondary transition-all group rounded-2xl">
-<input class="absolute top-4 right-4 text-secondary focus:ring-secondary" name="room" type="radio"/>
-<span class="font-headline-sm text-primary mb-1">Double</span>
-<span class="text-on-surface-variant font-label-sm">Twin or King shared</span>
-</label>
-<label class="relative flex flex-col p-6 bg-white border border-outline-variant cursor-pointer hover:border-secondary transition-all group rounded-2xl">
-<input class="absolute top-4 right-4 text-secondary focus:ring-secondary" name="room" type="radio"/>
-<span class="font-headline-sm text-primary mb-1">Triple</span>
-<span class="text-on-surface-variant font-label-sm">Three guests sharing</span>
-</label>
-</div>
-</section>
-<!-- Optional Add-ons Section -->
-<section>
-<h2 class="font-headline-md md:font-headline-lg text-primary mb-6 flex items-center gap-2">
-<span class="material-symbols-outlined">add_circle</span> Optional Add-ons
-                    </h2>
-<div class="space-y-4">
-<label class="flex items-center justify-between p-6 bg-white border border-slate-100 hover:shadow-md transition-shadow rounded-2xl">
-<div class="flex items-center gap-4">
-<input checked="" class="w-5 h-5 text-secondary border-outline-variant focus:ring-secondary rounded" type="checkbox"/>
-<div>
-<div class="font-body-lg font-bold text-primary">Travel Insurance (Recommended)</div>
-<div class="text-on-surface-variant text-sm">Full protection for your Sicilian adventure</div>
-</div>
-</div>
-<div class="font-headline-sm text-primary">+$145</div>
-</label>
-<label class="flex items-center justify-between p-6 bg-white border border-slate-100 hover:shadow-md transition-shadow rounded-2xl">
-<div class="flex items-center gap-4">
-<input class="w-5 h-5 text-secondary border-outline-variant focus:ring-secondary rounded" type="checkbox"/>
-<div>
-<div class="font-body-lg font-bold text-primary">Airport Transfer</div>
-<div class="text-on-surface-variant text-sm">Private chauffeur from CTA Airport to Hotel</div>
-</div>
-</div>
-<div class="font-headline-sm text-primary">+$85</div>
-</label>
-<label class="flex items-center justify-between p-6 bg-white border border-slate-100 hover:shadow-md transition-shadow rounded-2xl">
-<div class="flex items-center gap-4">
-<input class="w-5 h-5 text-secondary border-outline-variant focus:ring-secondary rounded" type="checkbox"/>
-<div>
-<div class="font-body-lg font-bold text-primary">Extra Night in Catania</div>
-<div class="text-on-surface-variant text-sm">Extend your stay with 1 night at the Grand Hotel Baia Verde</div>
-</div>
-</div>
-<div class="font-headline-sm text-primary">+$220</div>
-</label>
-</div>
-</section>
-<!-- Secure Payment Section -->
-<section>
-<div class="flex items-center justify-between mb-6">
-<h2 class="font-headline-md md:font-headline-lg text-primary flex items-center gap-2">
-<span class="material-symbols-outlined">shield</span> Secure Payment
-                        </h2>
-<div class="flex items-center gap-2 bg-green-50 text-green-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">lock</span> Secure Checkout
-                        </div>
-</div>
-<div class="bg-white border border-outline-variant p-8 shadow-lg rounded-3xl">
-<div class="flex flex-col sm:flex-row gap-4 mb-8">
-<button class="flex-1 py-3 px-6 border-2 border-primary-container font-label-md flex items-center justify-center gap-2 rounded-2xl">
-<span class="material-symbols-outlined">credit_card</span> Credit/Debit Card
-                            </button>
-<button class="flex-1 py-3 px-6 border border-outline-variant hover:bg-slate-50 transition-colors font-label-md flex items-center justify-center gap-2 rounded-2xl">
-<span class="material-symbols-outlined">payments</span> PayPal
-                            </button>
-</div>
-<div class="grid grid-cols-2 gap-8">
-<div class="flex flex-col gap-2 col-span-2">
-<label class="font-label-md text-on-surface-variant">Card Number</label>
-<div class="relative">
-<input class="w-full border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 pr-12 bg-surface-container-low rounded-2xl" placeholder="0000 0000 0000 0000" type="text"/>
-<span class="absolute right-3 top-3 material-symbols-outlined text-outline">credit_card</span>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-on-surface-variant">Expiry Date</label>
-<input class="border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 bg-surface-container-low rounded-2xl" placeholder="MM / YY" type="text"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-on-surface-variant">CVV</label>
-<input class="border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 bg-surface-container-low rounded-2xl" placeholder="123" type="text"/>
-</div>
-<div class="flex flex-col gap-2 col-span-2">
-<label class="font-label-md text-on-surface-variant">Name on Card</label>
-<input class="border-outline-variant focus:border-secondary focus:ring-1 focus:ring-secondary p-5 bg-surface-container-low rounded-2xl" placeholder="As it appears on your card" type="text"/>
-</div>
-</div>
-<div class="mt-8 flex items-center gap-2 text-on-surface-variant text-sm">
-<span class="material-symbols-outlined text-lg">info</span>
-                            Your transaction is protected by industry-leading 256-bit SSL encryption.
-                        </div>
-</div>
-</section>
-</div>
-</div>
-<!-- Right Column: Sidebar Summary -->
-<div class="lg:col-span-4">
-<div class="sticky top-28 space-y-8">
-<!-- Booking Summary Card -->
-<div class="bg-white border border-slate-200 shadow-xl overflow-hidden rounded-3xl">
-<div class="h-48 overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="A breathtaking panoramic view of the ancient Greek ruins in Segesta, Sicily, during a golden hour sunset." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNldCovoKldEFMCuT0oeGyYsc1dgbRZZRUNnWjYmqyPN2Hou8xSP0SY8kANxEaGCFIIG-xMHOMm7e7vjo3gxKbObgz55iArV-f9y_wvYoFv37bbK1wIcrWPlSKjguEM28mUaWJn7ZBYHUWoAeZPsHvUbbGV3wd7tg_m2ni5ePzX3QRcE1eRRC4gilRRQ8vK3Klvu_rcJXg4GN1JpzT4PmiFiPkQrSM8bxtvFL3Lce3syQmp8v-U3B859Jp5bkTYTtOT4pgbJY0WYU"/>
-</div>
-<div class="p-6">
-<h3 class="font-headline-md md:font-headline-lg text-primary-container mb-2">Sicilian Secrets</h3>
-<div class="space-y-3 mb-6">
-<div class="flex items-center gap-3 text-on-surface-variant">
-<span class="material-symbols-outlined text-secondary">calendar_today</span>
-<span class="font-label-md">May 15 - May 22, 2026</span>
-</div>
-<div class="flex items-center gap-3 text-on-surface-variant">
-<span class="material-symbols-outlined text-secondary">schedule</span>
-<span class="font-label-md">8 Days / 7 Nights</span>
-</div>
-<div class="flex items-center gap-3 text-on-surface-variant">
-<span class="material-symbols-outlined text-secondary">group</span>
-<span class="font-label-md">2 Travelers</span>
-</div>
-</div>
-<div class="border-t border-slate-100 pt-6 space-y-3">
-<div class="flex justify-between font-body-md">
-<span>Tour Price ($1,850 x 2)</span>
-<span>$3,700.00</span>
-</div>
-<div class="flex justify-between font-body-md">
-<span>Room Surcharge</span>
-<span>$0.00</span>
-</div>
-<div class="flex justify-between font-body-md">
-<span>Taxes &amp; Fees</span>
-<span>$120.00</span>
-</div>
-<div class="flex justify-between font-headline-sm text-primary pt-3 border-t border-slate-100">
-<span>Total Price</span>
-<span>$3,820.00</span>
-</div>
-</div>
-<button class="w-full mt-8 bg-secondary-container hover:bg-secondary transition-colors text-[#241a00] hover:text-white py-4 px-6 font-label-md uppercase tracking-widest text-center rounded-2xl">
-                            Confirm &amp; Pay
-                        </button>
-<p class="text-[10px] text-center text-on-surface-variant mt-4 uppercase tracking-tighter">By clicking "Confirm &amp; Pay", you agree to our Terms of Service</p>
-</div>
-</div>
-<!-- Trust Section -->
-<div class="space-y-4 px-2">
-<div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-white hover:shadow-sm transition-all">
-<div class="w-10 h-10 bg-primary-fixed rounded-2xl flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary-container">verified_user</span>
-</div>
-<div>
-<h4 class="font-label-md text-primary">Best Price Guarantee</h4>
-<p class="text-sm text-on-surface-variant">Find a lower price and we'll match it plus give you a $50 credit.</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-white hover:shadow-sm transition-all">
-<div class="w-10 h-10 bg-primary-fixed rounded-2xl flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary-container">support_agent</span>
-</div>
-<div>
-<h4 class="font-label-md text-primary">24/7 Expert Support</h4>
-<p class="text-sm text-on-surface-variant">Our concierge team is available around the clock during your trip.</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-white hover:shadow-sm transition-all">
-<div class="w-10 h-10 bg-primary-fixed rounded-2xl flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-primary-container">lock_reset</span>
-</div>
-<div>
-<h4 class="font-label-md text-primary">PCI-Compliant Payment</h4>
-<p class="text-sm text-on-surface-variant">Your payment details are never stored on our servers.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer -->
-<footer class="bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-20">
-<div class="flex flex-col md:flex-row justify-between items-center py-12 px-8 w-full max-w-7xl mx-auto">
-<div class="mb-8 md:mb-0">
-<div class="text-lg font-bold text-[#0A2342] dark:text-white mb-2">Mediterranean Prestige</div>
-<p class="font-['Noto_Serif'] text-xs uppercase tracking-widest text-slate-500 dark:text-slate-300">
-                © 2024 Mediterranean Prestige. All rights reserved. Secure Encrypted Checkout.
-            </p>
-</div>
-<div class="flex gap-8">
-<a class="font-['Noto_Serif'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#0A2342] transition-all" href="#">Privacy Policy</a>
-<a class="font-['Noto_Serif'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#0A2342] transition-all" href="#">Terms of Service</a>
-<a class="font-['Noto_Serif'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#0A2342] transition-all" href="#">Travel Insurance</a>
-<a class="font-['Noto_Serif'] text-xs uppercase tracking-widest text-slate-500 hover:text-[#0A2342] transition-all" href="#">Contact Us</a>
-</div>
-</div>
-</footer>
-</body></html>
+    </main>
+   <!-- footer -->
+    <div id="footer-root"></div>
+
+    <script>
+        const roomOptions = document.querySelectorAll('#roomOptions .radio-option');
+        const addonOptions = document.querySelectorAll('.addon-option');
+        const roomSurchargeEl = document.getElementById('roomSurcharge');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const paymentTabs = document.querySelectorAll('#paymentTabs .payment-tab');
+        const confirmButton = document.getElementById('confirmPayment');
+
+        const basePrice = 3700;
+        const taxFee = 120;
+        const roomSurcharges = {
+            single: 0,
+            double: 120,
+            triple: 220
+        };
+        const addonPrices = {
+            insurance: 145,
+            transfer: 85,
+            'extra-night': 220
+        };
+
+        function updateTotals() {
+            const selectedRoom = document.querySelector('input[name="room"]:checked').value;
+            const roomSurcharge = roomSurcharges[selectedRoom];
+            const selectedAddons = document.querySelectorAll('input[name="addon"]:checked');
+            let addonTotal = 0;
+            selectedAddons.forEach(addon => {
+                addonTotal += addonPrices[addon.value] || 0;
+            });
+            const total = basePrice + taxFee + roomSurcharge + addonTotal;
+            roomSurchargeEl.textContent = `$${roomSurcharge.toFixed(2)}`;
+            totalPriceEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        roomOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                roomOptions.forEach(item => item.classList.remove('active'));
+                option.classList.add('active');
+                option.querySelector('input').checked = true;
+                updateTotals();
+            });
+        });
+
+        addonOptions.forEach(option => {
+            const checkbox = option.querySelector('input[type="checkbox"]');
+            option.addEventListener('click', event => {
+                if (event.target.tagName !== 'INPUT') {
+                    checkbox.checked = !checkbox.checked;
+                }
+                option.classList.toggle('active', checkbox.checked);
+                updateTotals();
+            });
+            checkbox.addEventListener('change', () => {
+                option.classList.toggle('active', checkbox.checked);
+                updateTotals();
+            });
+        });
+
+        paymentTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                paymentTabs.forEach(item => item.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+
+        confirmButton.addEventListener('click', () => {
+            alert('Payment confirmed! Thank you for booking with Mediterranean Prestige.');
+        });
+
+        updateTotals();
+    </script>
+
+    <script src="../js/components/footer.js"></script>
+    <script src="../js/components/header.js"></script>
+</body>
+</html>

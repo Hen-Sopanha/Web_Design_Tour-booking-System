@@ -1,14 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tour Customize</title>
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <style>
+        body {
+        background: #f1f1f1;
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        padding: 2rem 1.5rem;
+        color: black;
+        }
+    </style>
 </head>
-
 <body>
+<div class="tour-card">
+  <div class="simple-header">
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <a href="tour-customize.html">| Tour Customize </a>
+      </div>
+    <h1>✈️ Customize your tour · Cambodia</h1>
+  </div>
+  <div class="customizer-layout">
+    <!-- LEFT SIDE: FORM -->
+    <div class="form-section">
+      <h2>📋 Tour details</h2>
+      
+      <div class="field">
+        <label>🌍 Your Destination</label>
+        <select id="destination">
+          <option value="kompot" selected>🔍 Kompot</option>
+          <option value="sihanoukville">🔍 Sihanoukville</option>
+          <option value="battambang">🔍 Battambang</option>
+          <option value="siemreap">🔍 Siem Reap</option>
+          <option value="kohkong">🔍 Koh Kong</option>
+          <option value="kep">🔍 Kep</option>
+        </select>
+      </div>
 
+      <div class="field">
+        <label>📅 Duration (nights)</label>
+        <div class="range-wrapper">
+          <span>1</span>
+          <input type="range" id="nightsSlider" min="1" max="10" value="4" step="1">
+          <span>10</span>
+          <span class="range-value" id="nightsValue">4 nights</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>👥 Travelers</label>
+        <input type="number" id="travelers" min="1" max="20" value="2" step="1">
+      </div>
+
+      <div class="field">
+        <label>🎯 Vibes</label>
+        <select id="vibesSelect">
+          <option value="Temple" selected>🏛️ Temple</option>
+          <option value="adventure">🏔️ Adventure</option>
+          <option value="Nature">🍃 Nature</option>
+          <option value="Beach">🌊 Beach</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>💰 Budget (per person / night)</label>
+        <div class="range-wrapper">
+          <span>$30</span>
+          <input type="range" id="budgetSlider" min="30" max="200" value="100" step="5">
+          <span>$200</span>
+          <span class="range-value" id="budgetValue">$100</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>📝 Special requests</label>
+        <textarea id="specialRequests" placeholder="e.g. vegetarian meals, surprise for anniversary, private guide..."></textarea>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: PREVIEW (live update) -->
+    <div class="preview-section">
+      <h2>🌟 Your dream tour preview</h2>
+      <div class="preview-card" id="previewBlock">
+        <div class="preview-row">
+          <span class="preview-label">Destination:</span>
+          <span class="preview-value" id="previewDest">Kompot</span>
+        </div>
+        <div class="preview-row">
+          <span class="preview-label">Nights / stay:</span>
+          <span class="preview-value" id="previewNights">4 nights</span>
+        </div>
+        <div class="preview-row">
+          <span class="preview-label">Travelers:</span>
+          <span class="preview-value" id="previewTravelers">2 people</span>
+        </div>
+        <div class="preview-row">
+          <span class="preview-label">Vibe style:</span>
+          <span class="preview-value" id="previewStyle">Temple</span>
+        </div>
+        <div class="preview-row">
+          <span class="preview-label">Budget per person / night:</span>
+          <span class="preview-value" id="previewBudget">$100</span>
+        </div>
+        <div class="preview-row">
+          <span class="preview-label">Special notes:</span>
+          <span class="preview-value" id="previewNotes">—</span>
+        </div>
+      </div>
+
+      <div class="total-box">
+        <div class="total-label">TOTAL (USD):</div>
+        <div class="total-amount" id="totalAmount">$800</div>
+      </div>
+      <div class="live-badge" id="liveUpdateMsg">
+      </div>
+      <form action="../pages/index.html" method="POST">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Scripts -->
+<script src="../js/pages/tourCustomize.js"></script>
 </body>
-
 </html>
