@@ -253,13 +253,16 @@
 }
 
 /* 📱 Mobile (1 card) */
-.card, .h-card {
+.card,
+.h-card {
     width: 100%;
 }
 
 /* 💻 Desktop (3 cards) */
-@media (min-width: 768px) {
-    .card, .h-card {
+@media (min-width: 576px) {
+
+    .card,
+    .h-card {
         width: calc(33.33% - 20px);
     }
 }
