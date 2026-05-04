@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Confirmed – CamTravel</title>
+
+   <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./../styles/base.css" />
+    <link rel="stylesheet" href="./../styles/components.css" />
+    <link rel="stylesheet" href="./../styles/layout.css" />
+    <link rel="stylesheet" href="./../styles/pages.css" />
+    <link rel="stylesheet" href="./../styles/responsive.css" />
+
+    <style>
+      /* ── Reset & Base (Matching File 1) ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f1f5f9;
+        color: #1f2937;
+        min-height: 100vh;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+      }
+
+      /* ── Page Header ── */
+      .page-header {
+        padding: 18px 24px;
+        background: #3b82f6;
+        color: #fff;
+      }
+      .page-header h1 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      /* ── Main Content ── */
+      .container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      .success-icon {
+        font-size: 64px;
+        color: #10b981;
+        margin-bottom: 16px;
+      }
+      .confirmed-title {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+      .confirmed-subtext {
+        font-size: 14px;
+        color: #4b5563;
+        margin-bottom: 30px;
+        line-height: 1.5;
+      }
+
+      /* ── Booking Details Card ── */
+      .details-card {
+        background: #fff;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        text-align: left;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+      .card-header {
+        background: #f8fafc;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card-header h2 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+      .ref-number {
+        font-size: 14px;
+        color: #64748b;
+        margin-bottom: 15px;
+      }
+
+      .detail-row {
+        display: flex;
+        padding: 12px 0;
+        border-top: 1px solid #f1f5f9;
+        align-items: center;
+        gap: 12px;
+      }
+      .detail-row:first-of-type {
+        border-top: none;
+      }
+      .detail-label {
+        font-size: 13px;
+        color: #64748b;
+        width: 60px;
+      }
+      .detail-value {
+        font-size: 14px;
+        font-weight: 600;
+        color: #0f172a;
+        flex: 1;
+      }
+      .total-line {
+        margin-top: 10px;
+        padding-top: 15px;
+        border-top: 2px solid #e2e8f0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .total-line span:last-child {
+        color: #f59e0b;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      /* ── Action Buttons ── */
+      .action-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 40px;
+      }
+      .btn-action {
+        background: #fff;
+        border: 1px solid #d1d5db;
+        padding: 15px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 600;
+        font-size: 13px;
+        transition: 0.2s;
+      }
+      .btn-action:hover {
+        background: #f8fafc;
+        border-color: #3b82f6;
+      }
+      .btn-action i {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+
+    <div id="header-root"></div>
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Confirmation</h1>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="success-icon">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h1 class="confirmed-title">BOOKING CONFIRMED!</h1>
+      <p class="confirmed-subtext">
+        Thank you for booking with CamTravel!<br />
+        A confirmation email has been sent to
+        <strong id="user-email">john221@gmail.com</strong>
+      </p>
+
+      <!-- Booking Details Card -->
+      <div class="details-card">
+        <div class="card-header">
+          <h2><i class="fa-solid fa-receipt"></i> Booking Details</h2>
+          <img
+            src="../assets/logo/CamTravel-Logo.png"
+            height="24"
+            alt="small logo"
+          />
+        </div>
+        <div class="card-body">
+          <p class="ref-number">
+            Booking reference: <strong>TE-245891</strong>
+          </p>
+
+          <div class="detail-row">
+            <span class="detail-label">Tour:</span>
+            <div class="detail-value">
+              <p id="tour-name">Kampot Adventure</p>
+              <small style="color: #64748b; font-weight: 400"
+                >Cambodia, Kampot</small
+              >
+            </div>
+          </div>
+
+          <div class="detail-row">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span class="detail-label">Date:</span>
+            <span class="detail-value">15-April-2026</span>
+          </div>
+
+          <div class="detail-row">
+            <i class="fa-solid fa-user-group"></i>
+            <span class="detail-label">Guests:</span>
+            <span class="detail-value" id="travelers-count"
+              >2 Adults, 1 Child</span
+            >
+          </div>
+
+          <div class="total-line">
+            <span style="font-weight: 700">Total Paid</span>
+            <span id="final-total">USD 75</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-grid">
+        <button class="btn-action">
+          <i class="fa-solid fa-download"></i> Download Itinerary
+        </button>
+        <a href="index.html" class="btn-action">
+          <i class="fa-solid fa-house"></i> Back to Home
+        </a>
+        <button class="btn-action">
+          <i class="fa-solid fa-magnifying-glass"></i> Explore More Tours
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // Load the same data used in previous pages
+      window.onload = function () {
+        const bookingData = JSON.parse(localStorage.getItem("bookingData"));
+        const currency = localStorage.getItem("selectedCurrency") || "USD";
+
+        if (bookingData) {
+          // Update Tour Name
+          if (bookingData.tourName)
+            document.getElementById("tour-name").textContent =
+              bookingData.tourName;
+
+          // Update Total (Example logic to match your previous total display)
+          let total = 75; // Base price
+          if (bookingData.addons) {
+            if (bookingData.addons.includes("Travel Insurance (Recommended)"))
+              total += 145;
+            if (bookingData.addons.includes("Airport Transfer")) total += 85;
+          }
+          document.getElementById("final-total").textContent =
+            currency + " " + total;
+        }
+      };
+    </script>
+
+        <div id="footer-root"></div>
+
+    <!-- Scripts -->
+    <script src="./../js/components/header.js"></script>
+    <script src="./../js/components/footer.js"></script>
+    <script src="./../js/utils.js"></script>
+    <script src="./../js/main.js"></script>
+    <script src="./../js/pages/tourDetails.js"></script>
+    
+  </body>
+</html>
