@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CamTravel - Tour Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../styles/base.css">
+    <link rel="stylesheet" href="./../styles/components.css">
+    <link rel="stylesheet" href="./../styles/layout.css">
+    <link rel="stylesheet" href="./../styles/pages.css">
+    <link rel="stylesheet" href="./../styles/responsive.css">
+</head>
+
+    <style>
+.search-section {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-box {
+  display: flex;
+  width: 800px;
+  background: #f5f5f5;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  padding: 10px 15px;
+  background: transparent;
+  outline: none;
+}
+
+.search-btn {
+  border: none;
+  background: #4da6ff;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.tour-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 30px;
+}
+
+.tour-card {
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tour-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.tour-card h3 {
+  margin: 10px 0 5px;
+}
+
+.tour-card a {
+  color: blue;
+  font-size: 14px;
+}
+.tour-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
+}
+
+#closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.customize-section {
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.customize-container {
+  display: flex;
+  margin: 30px;
+
+  gap: 60px;
+width: 100%;
+  margin: 0 auto;
+}
+
+.video-box {
+    flex: 1;
+    margin: auto;
+    justify-content: left;
+    align-items: left;
+    display: flex;
+}
+
+.video-box video {
+  width: 100%;
+  height: 450px;
+  border-radius: 15px; /* Matches the rounded corners in your Figma */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.customize-info {
+  flex: 1;
+  margin-top: 30px;
+}
+
+.customize-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.customize-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.btn-customize {
+  background-color: #f7a022; 
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .customize-container {
+    flex-direction: column;
+  }
+}
+    </style>
+<body>
+    <!-- Header mount point -->
+    <div id="header-root"></div>
+
+    <div class=" breadcrumb"
+    <a href="index.html">Home</a> <span> class = "separator">> </span>
+    <a href="tour-listing.html">Tour Listing</a> <span> class = "separator">> </span>
+    <a href="tour-details.html">Tour Details</a>
+    </div>
+
+   <section class="search-section">
+    <div class="search-box">
+        <input type="text" placeholder="Searching Tour..." />
+        <button class="search-btn">🔍</button>
+    </div>
+  </section>
+
+  <section class="tour-container">
+
+    <!-- Row 1 -->
+     <div class="tour-card">
+         <img src ="/Web_Design_Tour-booking-System/assets/video/images/TourA.jpg">
+        <h3h3>Tour A</h3h3>
+         <p>2 day-1 night</p>
+         <p>⭐ 4.8</p>
+        <p>$70 for one person</p>
+        <a href="tour-details.html">View details</a>
+    </div>
+
+  <div class="tour-card">
+    <img src="/Web_Design_Tour-booking-System/assets/video/images/TourB.jpg">
+    <h3>Tour B</h3>
+    <p>3 day-2 night</p>
+    <p>⭐ 4.9</p>
+    <p>$110 for one person</p>
+    <a href="tour-details.html">View details</a>
+  </div>
+
+  <div class="tour-card">
+    <img src="/Web_Design_Tour-booking-System/assets/video/images/TourC.jpg">
+    <h3>Tour C</h3>
+    <p>3 day-2 night</p>
+    <p>⭐ 4.7</p>
+    <p>$105 for one person</p>
+    <a href="tour-details.html">View details</a>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="tour-card">
+    <img src="/Web_Design_Tour-booking-System/assets/video/images/TourD.jpg">
+    <h3>Tour D</h3>
+    <p>4 day-3 night</p>
+    <p>⭐ 4.6</p>
+    <p>$99.99 for one person</p>
+    <a href="tour-details.html">View details</a>
+  </div>
+
+  <div class="tour-card">
+    <img src="/Web_Design_Tour-booking-System/assets/video/images/TourE.jpg">
+    <h3>Tour E</h3>
+    <p>4 day-3 night</p>
+    <p>⭐ 4.8</p>
+    <p>$180 for one person</p>
+    <a href="tour-details.html">View details</a>
+  </div>
+
+  <div class="tour-card">
+    <img src="/Web_Design_Tour-booking-System/assets/video/images/TourF.jpg">
+    <h3>Tour F</h3>
+    <p>1 Week</p>
+    <p>⭐ 4.9</p>
+    <p>$240 for one person</p>
+    <a href="tour-details.html">View details</a>
+  </div>
+
+  <div id="lightbox" class="lightbox">
+  <span id="closeBtn">&times;</span>
+  <img id="lightboxImg">
+</div>
+</section>
+<script>
+const images = document.querySelectorAll(".tour-card img");
+
+images.forEach(img => {
+  img.addEventListener("click", function () {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+
+    lightbox.style.display = "flex";
+    lightboxImg.src = this.src;
+  });
+});
+
+document.getElementById("closeBtn").addEventListener("click", function () {
+  document.getElementById("lightbox").style.display = "none";
+});
+</script>
+
+<section class="customize-section">
+  <div class="customize-container">
+    
+   
+    <div class="video-box">
+      <video controls poster="assets/images/tourC.jpg">
+        <source src="/Web_Design_Tour-booking-System/assets/video/explolre.mp4" type="video/mp4">
+       
+      </video>
+    </div>
+
+    
+    <div class="customize-info">
+      <ul>
+        <li><span class="icon">🎯</span> Tell us your Destination, date, and group size.</li>
+        <li><span class="icon">🎯</span> Our team of travel experts and guides will design a tailored itinerary just for you.</li>
+        <li><span class="icon">🎯</span> Enjoy your trip with peace of mind knowing everything is taken care of.</li>
+      </ul>
+      <button class="btn-customize">Customize My Tour</button>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Footer mount point -->
+    <div id="footer-root"></div>
+
+    <!-- Scripts -->
+    <script src="./../js/components/header.js"></script>
+    <script src="./../js/components/footer.js"></script>
+    <script src="./../js/utils.js"></script>
+    <script src="./../js/main.js"></script>
+    <script src="./../js/pages/tourDetails.js"></script>
+</body>
+</html>
