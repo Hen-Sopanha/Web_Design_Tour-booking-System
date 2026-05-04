@@ -711,7 +711,7 @@
                         </div> -->
                         <div class="trust-icon" style="cursor: pointer;">
                             <a href="tour-details.html" style="text-decoration: none; color: inherit;">
-                                <span class="material-symbols-outlined" style="">arrow_back</span>
+                                <span class="material-symbols-outlined" >arrow_back</span>
                             </a>
                         </div>
                         <div>
@@ -747,6 +747,40 @@
             'extra-night': 220
         };
 
+        function getSelectedAddons() {
+            return Array.from(document.querySelectorAll('input[name="addon"]:checked'))
+                .map(addon => addon.closest('.addon-option').querySelector('.addon-label').textContent.trim());
+        }
+
+        function getBookingData() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const selectedRoom = document.querySelector('input[name="room"]:checked');
+            const selectedRoomLabel = selectedRoom
+                .closest('.radio-option')
+                .querySelector('.radio-label')
+                .textContent
+                .trim();
+
+            return {
+                name: `${firstName} ${lastName}`.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                nationality: document.getElementById('nationality').value,
+                room: selectedRoomLabel,
+                addons: getSelectedAddons(),
+                tourName: document.querySelector('.summary-title').textContent.trim(),
+                location: 'Cambodia, Kep',
+                travelDates: 'May 15 - 22, 2026',
+                travelers: '2 Travelers',
+                total: totalPriceEl.textContent.replace('$', 'USD ')
+            };
+        }
+
+        function saveBookingData() {
+            localStorage.setItem('bookingData', JSON.stringify(getBookingData()));
+        }
+
         function updateTotals() {
             const selectedRoom = document.querySelector('input[name="room"]:checked').value;
             const roomSurcharge = roomSurcharges[selectedRoom];
@@ -758,6 +792,7 @@
             const total = basePrice + taxFee + roomSurcharge + addonTotal;
             roomSurchargeEl.textContent = `$${roomSurcharge.toFixed(2)}`;
             totalPriceEl.textContent = `$${total.toFixed(2)}`;
+            saveBookingData();
         }
 
         roomOptions.forEach(option => {
@@ -793,7 +828,28 @@
 
 
         confirmButton.addEventListener('click', () => {
-            alert('Payment confirmed! Thank you for booking with Mediterranean Prestige.');
+            const requiredFields = [
+                document.getElementById('firstName'),
+                document.getElementById('lastName'),
+                document.getElementById('email'),
+                document.getElementById('phone'),
+                document.getElementById('nationality')
+            ];
+            const emptyField = requiredFields.find(field => !field.value.trim());
+
+            if (emptyField) {
+                alert('Please fill in your traveler information first.');
+                emptyField.focus();
+                return;
+            }
+
+            saveBookingData();
+            window.location.href = 'confirm.html';
+        });
+
+        document.querySelectorAll('#firstName, #lastName, #email, #phone, #nationality').forEach(field => {
+            field.addEventListener('input', saveBookingData);
+            field.addEventListener('change', saveBookingData);
         });
 
         updateTotals();
