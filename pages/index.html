@@ -1,14 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CamTravel - Home</title>
+    <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/pages.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
 </head>
-
 <body>
+  <!-- Header mount point -->
+  <div id="header-root"></div>
+    <div id="navbar"></div>  <!-- Navbar injected by JS -->
+    <main>
+      <!-- Destination sidebar + main content area (two columns) -->
+      <div class="container page-grid">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> <span class="separator">></span>
+          <a href="tour-customize.html">Tour customize</a> <span class="separator">></span>
+          <a href="tour-listing.html">Tour Listing</a> <span class="separator">></span>
+          <a href="tour-details.html">Tour Details</a> 
+        </div>
+        <!-- Sidebar: Destinations -->
+        <aside class="destinations-bar">
+                <h2>Destination</h2>
+                <div class="container">
 
+                    <div class="card">
+                      <a href="#">
+                        <img src="../assets/images/Kompot.jpg" alt="Kompot">
+                      </a>
+                      <p>Kampot</p>
+                    </div>
+
+                    <div class="card">
+                      <a href="#">
+                        <img src="../assets/images/Sihanuville.jpg" alt="Battambong">
+                      </a>
+                      <p>Sihanoukville</p>
+                    </div>
+                  
+                    <div class="card">
+                      <a href="#">
+                        <img src="../assets/images/Battambong.jpg" alt="Battambong">
+                      </a>
+                      <p>Battambong</p>
+                    </div>
+                  
+                    <div class="card">
+                      <a href="#">
+                        <img src="../assets/images/SiemReap.jpg" alt="Siem Reap">
+                      </a>
+                      <p>Siem Reap</p>
+                    </div>
+                  
+                    <div class="card">
+                      <a href="#">
+                        <img src="../assets/images/Kohkong.jpg" alt="Koh kong">
+                      </a>
+                      <p>Koh Kong</p>
+                    </div>
+                  
+                    <div class="card">
+                      <a href="#">
+                        <img src="../assets/images/Kep.jpg" alt="Kep">
+                      </a>
+                      <p>Kep</p>
+                    </div>
+                  
+                  </div>
+                  
+            </aside>
+            <!-- Main content -->
+            <div class="main-content">
+              <!-- Attractive Trip section -->
+              <section class="Attrativetrips-section">
+                <h2>Attractive Trip</h2>
+                <div class="horizontal-scroll-wrapper">
+
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Angkorwat.jpg" alt="Temple">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Temple (USD 100/P)</h4>
+                      <p>Explore four amazing places including Angkor wat, Bayon temple, Pres Khan temple and visit.</p>
+                    </div>
+                  </div>
+              
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Tatai.jpg" alt="Nature">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Nature  (USD 50/P)</h4>
+                      <p>Explore Two amazing places including Mongrave national park, Tatai Resort.</p>
+                    </div>
+                  </div>
+                
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Kohsdach.jpg" alt="Advanture">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Advanture (USD 80/P)</h4>
+                      <p>Explore Three amazing places including Fishing Island, Prince Island and Koh Sdach.</p>
+                    </div>
+                  </div>
+                
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Kohrong.jpg" alt="Beach">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Beach (USD 70/P)</h4>
+                      <p>Explore  amazing places  in Koh Rong Samloem Island.</p>
+                    </div>
+                  </div>
+                
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Museum.jpg" alt="Cultural">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Cultural (USD 70/P)</h4>
+                      <p>Explore Siem Reap museum, and visit cultural village museum.</p>
+                    </div>
+                  </div>
+                
+                </div>
+                
+              </section>
+
+              <!-- Explore hidden Gems section -->
+              <section class="gems-section">
+                <h2>Explore hidden Gems</h2>
+                <div class="horizontal-scroll-wrapper">
+
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/KompongTrach.jpg" alt="Advanture">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Advanture (USD 50/P)</h4>
+                      <p>Explore amazing places  in Kompong Trach and next to visit Veal Puch waterful.</p>
+                    </div>
+                  </div>
+                
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Royalisland.jpg" alt="Beach">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Beach (USD 60/P)</h4>
+                      <p>Explore two amazing places including ThanSour Beach and go to the royal sands resort.</p>
+                    </div>
+                  </div>
+                
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Bengmelea.jpg" alt="Temple">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Temple (USD 50/P)</h4>
+                      <p>Explore  amazing places in Beng Mealea and Bonteay Srey temples.</p>
+                    </div>
+                  </div>
+                
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Bokko.jpg" alt="Natural">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Advanture (USD 50/P)</h4>
+                      <p>Explore  amazing places in Bokor mountain national park , la Plantation and Pnom Chhngok cave.</p>
+                    </div>
+                  </div>
+                
+                  <div class="h-card">
+                    <div class="h-card-img">
+                      <img src="../assets/images/Kompongpluck.jpg" alt="Nature">
+                    </div>
+                    <div class="h-card-content">
+                      <h4>Nature (USD 50/P)</h4>
+                      <p>Explore  amazing places in kampong phluk village.</p>
+                    </div>
+                  </div>
+                
+                </div>
+                
+              </section>
+                <div class="cards-grid" id="hidden-gems-container"></div>
+              </section>
+            </div>
+        </div>
+    </main>
+    <!-- Footer mount point -->
+    <div id="footer-root"></div>
+    <!-- Scripts -->
+    <script src="../js/data.js"></script>
+    <script src="../js/components/footer.js"></script>
+    <script src="../js/components/header.js"></script>
+    <script src="../js/pages/home.js"></script>
 </body>
-
 </html>
