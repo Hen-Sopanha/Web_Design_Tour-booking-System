@@ -732,11 +732,14 @@
                             <div class="price-total"><span>Total Price</span><span id="totalPrice" class="price-convert"
                                     data-base-price="3820">$3,820.00</span>
                             </div>
-                        </div>
-                        <button id="confirmPayment" style="background-color: #1A6FDB; color: #ffffff;">Confirm &
-                            Pay</button>
-                        <p class="summary-small">By clicking "Confirm & Pay", you agree to our Terms of Service</p>
-                    </div>
+                    
+                        
+                            <button id="confirmPayment" style="background-color: #1A6FDB; color: #ffffff;">
+                                Confirm & Pay
+                            </button>
+                            <p class="summary-small">By clicking "Confirm & Pay", you agree to our Terms of Service</p>
+                        
+                
                 </div>
                 <div class="trust-list" style="margin-top:32px;">
                     <div class="trust-item">
@@ -863,9 +866,9 @@
             };
         }
 
-        function saveBookingData() {
-            localStorage.setItem('bookingData', JSON.stringify(getBookingData()));
-        }
+        // function saveBookingData() {
+        //     localStorage.setItem('bookingData', JSON.stringify(getBookingData()));
+        // }
 
         function updateTotals() {
             const selectedRoom = document.querySelector('input[name="room"]:checked').value;
@@ -920,24 +923,62 @@
         });
 
 
-        confirmButton.addEventListener('click', () => {
-            const requiredFields = [
-                document.getElementById('firstName'),
-                document.getElementById('lastName'),
-                document.getElementById('email'),
-                document.getElementById('phone'),
-                document.getElementById('nationality')
-            ];
-            const emptyField = requiredFields.find(field => !field.value.trim());
+        // confirmButton.addEventListener('click', () => {
+        //     const requiredFields = [
+        //         document.getElementById('firstName'),
+        //         document.getElementById('lastName'),
+        //         document.getElementById('email'),
+        //         document.getElementById('phone'),
+        //         document.getElementById('nationality')
+        //     ];
+        //     const emptyField = requiredFields.find(field => !field.value.trim());
 
-            if (emptyField) {
-                alert('Please fill in your traveler information first.');
-                emptyField.focus();
+        //     if (emptyField) {
+        //         alert('Please fill in your traveler information first.');
+        //         emptyField.focus();
+        //         return;
+        //     }
+
+        //     saveBookingData();
+        //     window.location.href = 'confirm.html';
+        // });
+        function saveBookingData() {
+            // Make sure getBookingData() is defined elsewhere in your script
+            localStorage.setItem('bookingData', JSON.stringify(getBookingData()));
+        }
+
+        // Wrap your initialization inside DOMContentLoaded to guarantee elements exist
+        document.addEventListener('DOMContentLoaded', () => {
+            const confirmButton = document.getElementById('confirmPayment');
+            
+            if (!confirmButton) {
+                console.error("Confirm button not found in the DOM.");
                 return;
             }
 
-            saveBookingData();
-            window.location.href = 'confirm.html';
+            confirmButton.addEventListener('click', () => {
+                const fieldIds = ['firstName', 'lastName', 'email', 'phone', 'nationality'];
+                let emptyField = null;
+
+                // Find the first field that is either missing from DOM or has an empty value
+                for (const id of fieldIds) {
+                    const element = document.getElementById(id);
+                    if (!element || !element.value.trim()) {
+                        emptyField = element; // Store reference to the element to focus on it
+                        break;
+                    }
+                }
+
+                if (emptyField) {
+                    alert('Please fill in your traveler information first.');
+                    emptyField.focus();
+                    return;
+                }
+
+                // If everything passes, save data and redirect
+                saveBookingData();
+                window.location.href = 'confirm.html';
+            });
         });
 
         document.querySelectorAll('#firstName, #lastName, #email, #phone, #nationality').forEach(field => {
